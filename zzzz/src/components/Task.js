@@ -5,17 +5,15 @@ import Input from 'antd/lib/input';
 import DatePicker from 'antd/lib/date-picker';
 import Select from 'antd/lib/select';
 import Button from 'antd/lib/button';
-import Card from 'antd/lib/card';
 import Checkbox from 'antd/lib/checkbox';
-import Radio from 'antd/lib/radio';
-import Icon from 'antd/lib/icon';
-import Tooltip from 'antd/lib/tooltip';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 
 
-import p1 from '../pic/1.jpg';
 import p2 from '../pic/2.jpg';
 import p3 from '../pic/3.jpg';
 import p4 from '../pic/4.jpg';
@@ -25,7 +23,20 @@ import p7 from '../pic/7.jpg';
 import p8 from '../pic/8.jpg';
 import p9 from '../pic/9.jpg';
 import p10 from '../pic/10.jpg';
+
 import '../css/Task.css';
+import Question1 from './question/Question1'
+import Question2 from './question/Question2';
+import Question3 from './question/Question3';
+import Question4 from './question/Question4';
+import Question5 from './question/Question5';
+import Question6 from './question/Question6';
+import Question7 from './question/Question7';
+import Question8 from './question/Question8';
+import Question9 from './question/Question9';
+import Question10 from './question/Question10';
+import Question11 from './question/Question11';
+import Question12 from './question/Question12';
 
 
 const FormItem = Form.Item;
@@ -44,9 +55,15 @@ class Task extends Component {
     current: 1
   };
 
-  onButtonClickA = () => {
+  onButtonClickNext = () => {
     this.setState({
       current: this.state.current + 1
+    });
+  };
+
+  onButtonClickBack = () => {
+    this.setState({
+      current: this.state.current - 1
     });
   };
   
@@ -55,622 +72,115 @@ class Task extends Component {
     {
       case 1:
         return(
-          <div>
-            <Row>
-              <Col span={12}>
-                <img src={p1} alt="Flowers in Chania" width="700" height="200" />
-              </Col>
-              <Col span={12}>
-                <FormItem>
-                <p>问题一：图片中是否含有以下元素？</p>
-                
-                <Checkbox onChange={onCheckboxChange}> 
-                根
-                </Checkbox>
-                <Checkbox onChange={onCheckboxChange}> 
-                茎
-                </Checkbox>
-                <Checkbox onChange={onCheckboxChange}> 
-                叶
-                </Checkbox>
-              </FormItem>
-
-              <FormItem>
-              <Button
-                  type="primary"
-                  onClick={() => {
-                    this.setState({
-                      current: this.state.current + 1
-                    });
-                  }}
-                >
-                  保存答案，下一题
-                </Button>
-                <p> </p>
-                <Button
-                  type="default"
-                  onClick={() => {
-                    this.setState({
-                      current: this.state.current - 1
-                    });
-                  }}
-                >
-                  返回上一题
-                </Button>
-              </FormItem>
-              </Col>
-            </Row>
-          </div>
+          <Question1 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question1>
           );
 
-          case 2:
+      case 2:
+        return(
+          <Question2></Question2>
+          );
+
+      case 3:
+        return(
+          <Question3></Question3>
+          );
+
+      case 4:
+        return(
+            <Question4></Question4>
+          );
+
+      case 5:
+      return(
+         <Question5></Question5>
+        );            
+
+      case 6:
         return(
           <div>
-            <Row>
-              <Col span={12}>
-                <img src={p2} alt="Flowers in Chania" width="700" height="200" />
-              </Col>
-              <Col span={12}>
-                <FormItem>
-                <p>问题二：图片中是否含有以下元素？</p>
-                
-                <Checkbox onChange={onCheckboxChange}> 
-                根
-                </Checkbox>
-                <Checkbox onChange={onCheckboxChange}> 
-                茎
-                </Checkbox>
-                <Checkbox onChange={onCheckboxChange}> 
-                叶
-                </Checkbox>
-              </FormItem>
+            <p>您于1-5题的得分是：85分</p>
+            <br/>
+            <br/>
 
-              <FormItem>
-              <Button
-                  type="primary"
-                  onClick={() => {
-                    this.setState({
-                      current: this.state.current + 1
-                    });
-                  }}
-                >
-                  保存答案，下一题
-                </Button>
-                <p> </p>
-                <Button
-                  type="default"
-                  onClick={() => {
-                    this.setState({
-                      current: this.state.current - 1
-                    });
-                  }}
-                >
-                  返回上一题
-                </Button>
-              </FormItem>
-              </Col>
-            </Row>
+            <p>正确题目：1 3 4 5</p>
+            <br/>
+            <p>部分正确题目：2</p>
+            <br/>
+            <p>错误题目：无</p>
+            <br/>
+            <p>填表时间： 2019年03月01日18:45:24 （HKT online）</p>
+            <br/>
+            <Button
+              type="primary"
+              onClick={() => {
+                this.setState({
+                  current: this.state.current + 1
+                });
+              }}
+            >
+              进入中等难度题目
+            </Button>
+
           </div>
           );
 
-          case 3:
-          return(
-            <div>
-              <Row>
-                <Col span={12}>
-                  <img src={p3} alt="Flowers in Chania" width="700" height="200" />
-                </Col>
-                <Col span={12}>
-                  <FormItem>
-                  <p>问题三：图片中是否含有以下元素？</p>
-                  
-                  <Checkbox onChange={onCheckboxChange}> 
-                  根
-                  </Checkbox>
-                  <Checkbox onChange={onCheckboxChange}> 
-                  茎
-                  </Checkbox>
-                  <Checkbox onChange={onCheckboxChange}> 
-                  叶
-                  </Checkbox>
-                </FormItem>
-  
-                <FormItem>
-                <Button
-                    type="primary"
-                    onClick={() => {
-                      this.setState({
-                        current: this.state.current + 1
-                      });
-                    }}
-                  >
-                    保存答案，下一题
-                  </Button>
-                  <p> </p>
-                  <Button
-                    type="default"
-                    onClick={() => {
-                      this.setState({
-                        current: this.state.current - 1
-                      });
-                    }}
-                  >
-                    返回上一题
-                  </Button>
-                </FormItem>
-                </Col>
-              </Row>
-            </div>
-            );
+      case 7:
+      return(
+        <Question6></Question6>
+        );
 
-            case 4:
-            return(
-              <div>
-                <Row>
-                  <Col span={12}>
-                    <img src={p4} alt="Flowers in Chania" width="700" height="200" />
-                  </Col>
-                  <Col span={12}>
-                    <FormItem>
-                    <p>问题四：图片中是否含有以下元素？</p>
-                    
-                    <Checkbox onChange={onCheckboxChange}> 
-                    根
-                    </Checkbox>
-                    <Checkbox onChange={onCheckboxChange}> 
-                    茎
-                    </Checkbox>
-                    <Checkbox onChange={onCheckboxChange}> 
-                    叶
-                    </Checkbox>
-                  </FormItem>
-    
-                  <FormItem>
-                  <Button
-                      type="primary"
-                      onClick={() => {
-                        this.setState({
-                          current: this.state.current + 1
-                        });
-                      }}
-                    >
-                      保存答案，下一题
-                    </Button>
-                    <p> </p>
-                    <Button
-                      type="default"
-                      onClick={() => {
-                        this.setState({
-                          current: this.state.current - 1
-                        });
-                      }}
-                    >
-                      返回上一题
-                    </Button>
-                  </FormItem>
-                  </Col>
-                </Row>
-              </div>
-              );
+      case 8:
+      return(
+        <Question7></Question7>
+        );
 
-              case 5:
-              return(
-                <div>
-                  <Row>
-                    <Col span={12}>
-                      <img src={p5} alt="Flowers in Chania" width="700" height="200" />
-                    </Col>
-                    <Col span={12}>
-                      <FormItem>
-                      <p>问题五：图片中是否含有以下元素？</p>
-                      
-                      <Checkbox onChange={onCheckboxChange}> 
-                      根
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      茎
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      叶
-                      </Checkbox>
-                    </FormItem>
-      
-                    <FormItem>
-                    <Button
-                        type="primary"
-                        onClick={() => {
-                          this.setState({
-                            current: this.state.current + 1
-                          });
-                        }}
-                      >
-                        保存答案，下一题
-                      </Button>
-                      <p> </p>
-                      <Button
-                        type="default"
-                        onClick={() => {
-                          this.setState({
-                            current: this.state.current - 1
-                          });
-                        }}
-                      >
-                        返回上一题
-                      </Button>
-                    </FormItem>
-                    </Col>
-                  </Row>
-                </div>
-                );            
+      case 9:
+      return(
+        <Question8></Question8>       
+        );
 
-          case 6:
-            return(
-              <div>
-                <h>您于1-5题的得分是：85分</h>
-                <br/>
-                <br/>
+      case 10:
+      return(
+       <Question9></Question9> 
+        );
 
-                <p>正确题目：1 3 4 5</p>
-                <br/>
-                <p>部分正确题目：2</p>
-                <br/>
-                <p>错误题目：无</p>
-                <br/>
-                <p>填表时间： 2019年03月01日18:45:24 （HKT online）</p>
-                <br/>
-                <Button
-                  type="primary"
-                  onClick={() => {
-                    this.setState({
-                      current: this.state.current + 1
-                    });
-                  }}
-                >
-                  进入中等难度题目
-                </Button>
+      case 11:
+      return(
+       <Question10></Question10>         
+        );
 
-              </div>
-              );
+      case 12:
+        return(
+          <div>
+            <p>您于6-10题的得分是：92分</p>
+            <br/>
+            <br/>
 
-              
+            <p>正确题目：6 8 9 10</p>
+            <br/>
+            <p>部分正确题目：7</p>
+            <br/>
+            <p>错误题目：无</p>
+            <br/>
+            <p>填表时间： 2019年03月01日18:52:04 （HKT online）</p>
 
-              case 7:
-              return(
-                <div>
-                  <Row>
-                    <Col span={12}>
-                      <img src={p6} alt="Flowers in Chania" width="700" height="200" />
-                    </Col>
-                    <Col span={12}>
-                      <FormItem>
-                      <p>问题六：图片中是否含有以下元素？</p>
-                      
-                      <Checkbox onChange={onCheckboxChange}> 
-                      根
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      茎
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      叶
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      嫩芽
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      花蕊
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      果实
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      种子
-                      </Checkbox>
-                    </FormItem>
-      
-                    <FormItem>
-                    <Button
-                        type="primary"
-                        onClick={() => {
-                          this.setState({
-                            current: this.state.current + 1
-                          });
-                        }}
-                      >
-                        保存答案，下一题
-                      </Button>
-                      <p> </p>
-                      <Button
-                        type="default"
-                        onClick={() => {
-                          this.setState({
-                            current: this.state.current - 1
-                          });
-                        }}
-                      >
-                        返回上一题
-                      </Button>
-                    </FormItem>
-                    </Col>
-                  </Row>
-                </div>
-                );
-
-                case 8:
-                return(
-                  <div>
-                    <Row>
-                      <Col span={12}>
-                        <img src={p7} alt="Flowers in Chania" width="700" height="200" />
-                      </Col>
-                      <Col span={12}>
-                        <FormItem>
-                        <p>问题七：图片中是否含有以下元素？</p>
-                        
-                        <Checkbox onChange={onCheckboxChange}> 
-                      根
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      茎
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      叶
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      嫩芽
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      花蕊
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      果实
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      种子
-                      </Checkbox>
-                      </FormItem>
-        
-                      <FormItem>
-                      <Button
-                          type="primary"
-                          onClick={() => {
-                            this.setState({
-                              current: this.state.current + 1
-                            });
-                          }}
-                        >
-                          保存答案，下一题
-                        </Button>
-                        <p> </p>
-                        <Button
-                          type="default"
-                          onClick={() => {
-                            this.setState({
-                              current: this.state.current - 1
-                            });
-                          }}
-                        >
-                          返回上一题
-                        </Button>
-                      </FormItem>
-                      </Col>
-                    </Row>
-                  </div>
-                  );
-
-                  case 9:
-                  return(
-                    <div>
-                      <Row>
-                        <Col span={12}>
-                          <img src={p8} alt="Flowers in Chania" width="700" height="200" />
-                        </Col>
-                        <Col span={12}>
-                          <FormItem>
-                          <p>问题八：图片中是否含有以下元素？</p>
-                          <Checkbox onChange={onCheckboxChange}> 
-                      根
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      茎
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      叶
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      嫩芽
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      花蕊
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      果实
-                      </Checkbox>
-                      <Checkbox onChange={onCheckboxChange}> 
-                      种子
-                      </Checkbox>
-                        </FormItem>
-          
-                        <FormItem>
-                        <Button
-                            type="primary"
-                            onClick={() => {
-                              this.setState({
-                                current: this.state.current + 1
-                              });
-                            }}
-                          >
-                            保存答案，下一题
-                          </Button>
-                          <p> </p>
-                          <Button
-                            type="default"
-                            onClick={() => {
-                              this.setState({
-                                current: this.state.current - 1
-                              });
-                            }}
-                          >
-                            返回上一题
-                          </Button>
-                        </FormItem>
-                        </Col>
-                      </Row>
-                    </div>
-                    );
-
-                    case 10:
-                    return(
-                      <div>
-                        <Row>
-                          <Col span={12}>
-                            <img src={p9} alt="Flowers in Chania" width="700" height="200" />
-                          </Col>
-                          <Col span={12}>
-                            <FormItem>
-                            <p>问题九：图片中是否含有以下元素？</p>
-                            <Checkbox onChange={onCheckboxChange}> 
-                        根
-                        </Checkbox>
-                        <Checkbox onChange={onCheckboxChange}> 
-                        茎
-                        </Checkbox>
-                        <Checkbox onChange={onCheckboxChange}> 
-                        叶
-                        </Checkbox>
-                        <Checkbox onChange={onCheckboxChange}> 
-                        嫩芽
-                        </Checkbox>
-                        <Checkbox onChange={onCheckboxChange}> 
-                        花蕊
-                        </Checkbox>
-                        <Checkbox onChange={onCheckboxChange}> 
-                        果实
-                        </Checkbox>
-                        <Checkbox onChange={onCheckboxChange}> 
-                        种子
-                        </Checkbox>
-                          </FormItem>
-            
-                          <FormItem>
-                          <Button
-                              type="primary"
-                              onClick={() => {
-                                this.setState({
-                                  current: this.state.current + 1
-                                });
-                              }}
-                            >
-                              保存答案，下一题
-                            </Button>
-                            <p> </p>
-                            <Button
-                              type="default"
-                              onClick={() => {
-                                this.setState({
-                                  current: this.state.current - 1
-                                });
-                              }}
-                            >
-                              返回上一题
-                            </Button>
-                          </FormItem>
-                          </Col>
-                        </Row>
-                      </div>
-                      );
-
-                      case 11:
-                      return(
-                        <div>
-                          <Row>
-                            <Col span={12}>
-                              <img src={p10} alt="Flowers in Chania" width="700" height="200" />
-                            </Col>
-                            <Col span={12}>
-                              <FormItem>
-                              <p>问题十：图片中是否含有以下元素？</p>
-                              <Checkbox onChange={onCheckboxChange}> 
-                          根
-                          </Checkbox>
-                          <Checkbox onChange={onCheckboxChange}> 
-                          茎
-                          </Checkbox>
-                          <Checkbox onChange={onCheckboxChange}> 
-                          叶
-                          </Checkbox>
-                          <Checkbox onChange={onCheckboxChange}> 
-                          嫩芽
-                          </Checkbox>
-                          <Checkbox onChange={onCheckboxChange}> 
-                          花蕊
-                          </Checkbox>
-                          <Checkbox onChange={onCheckboxChange}> 
-                          果实
-                          </Checkbox>
-                          <Checkbox onChange={onCheckboxChange}> 
-                          种子
-                          </Checkbox>
-                            </FormItem>
-              
-                            <FormItem>
-                            <Button
-                                type="primary"
-                                onClick={() => {
-                                  this.setState({
-                                    current: this.state.current + 1
-                                  });
-                                }}
-                              >
-                                保存答案，下一题
-                              </Button>
-                              <p> </p>
-                              <Button
-                                type="default"
-                                onClick={() => {
-                                  this.setState({
-                                    current: this.state.current - 1
-                                  });
-                                }}
-                              >
-                                返回上一题
-                              </Button>
-                            </FormItem>
-                            </Col>
-                          </Row>
-                        </div>
-                        );
-
-            case 12:
-              return(
-                <div>
-                  <h>您于6-10题的得分是：92分</h>
-                  <br/>
-                  <br/>
-  
-                  <p>正确题目：6 8 9 10</p>
-                  <br/>
-                  <p>部分正确题目：7</p>
-                  <br/>
-                  <p>错误题目：无</p>
-                  <br/>
-                  <p>填表时间： 2019年03月01日18:52:04 （HKT online）</p>
-
-                  <br/>
-                <Button
-                  type="primary"
-                  onClick={() => {
-                    this.setState({
-                      current: this.state.current + 1
-                    });
-                  }}
-                >
-                  结束问卷
-                </Button>
-                </div>
-
-                
-                );
+            <br/>
+          <Button
+            type="primary"
+            onClick={() => {
+              this.setState({
+                current: this.state.current + 1
+              });
+            }}
+          >
+            结束问卷
+          </Button>
+          </div>
+          );
 
       default:
         return(<p>问卷已完成，感谢参与!</p>);
@@ -680,16 +190,16 @@ class Task extends Component {
   
 
   render() {
-    
-
     return (
       <div className="Task">
-        <Form onSubmit={this.handleSubmit} hideRequiredMark style={{ marginTop: 8 }}>
-            <h>问卷填写平台 Ver 0.85</h>
-            <br/>
-            { this.getcurrent()}
-          </Form>
-        
+            <AppBar position="static">
+              <Toolbar>
+                <Typography variant="h6" color="inherit" noWrap>
+                Botanical Classification 植物学分类任务
+                </Typography>
+              </Toolbar>
+            </AppBar>
+            {this.getcurrent()}
       </div>
     );
   }
