@@ -8,6 +8,7 @@ const BasicRouter = () => {
         <Router>
             <div>
                 <Route exact path="/" component={Welcome} />
+                <Route  path="/home" component={Welcome} />                
                 <Route  path="/task" component={Task} />
             </div>
         </Router>

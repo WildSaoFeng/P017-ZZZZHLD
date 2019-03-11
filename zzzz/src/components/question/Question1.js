@@ -10,6 +10,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
+import CardMedia from '@material-ui/core/CardMedia';
 
 const styles = theme => ({
     gjy:{
@@ -50,22 +51,27 @@ class Question1 extends Component {
         ye: false,
     };
 
-
     handleChange = name => event => {
         this.setState({ [name]: event.target.checked });
     };
 
-    
+    handleClick = () => {
+        console.log("test");
+    };
+
     render(){
         const { classes } = this.props;
         const { gen, ye } = this.state;
-
-        console.log(this.props);
 
         return (
             <Grid container spacing={8} className={classes.cardGroup} >
                 <Grid item xs={4} >
                     <Card className={classes.card} >
+                    <CardMedia
+                        className={classes.media}
+                        image="https://i.loli.net/2019/03/05/5c7dfae9d1688.jpg"
+                        title="Contemplative Reptile"
+                        />
                     </Card>
                 </Grid>
                 <Grid item xs={4} >
@@ -117,13 +123,8 @@ class Question1 extends Component {
                             <div className={classes.buttonGroup} >
                                 <Grid container spacing={24} >
                                     <Grid item xs={12}>
-                                        <Button variant="contained" color="secondary" className={classes.button1}>
+                                        <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {this.props.onButtonClickNext()}} >
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </Button>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Button variant="contained" color="primary" className={classes.button2} onClick={this.props.onButtonClickNext()} >
-                                        返回上一题
                                         </Button>
                                     </Grid>
                                     <Grid item xs={4}>

@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import '../css/Welcome.css';
 
 
 const styles = theme => ({
@@ -30,15 +29,11 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 40,
   },
   layout2: {
-    //高校组成以及蓝图
-    // backgroundColor:'#05122b', //紫黑色
     backgroundColor:'#1d213c', //紫黑色
-    // backgroundImage: `url('https://i.loli.net/2018/08/25/5b810c2dc3225.jpeg')`, 
     paddingTop: theme.spacing.unit * 7,
     paddingBottom: theme.spacing.unit * 7,
   },
   layout3: {
-    //价值主张
     backgroundColor:'#272b47', //更浅的紫黑色
     paddingTop: theme.spacing.unit * 7 ,
     paddingBottom: theme.spacing.unit * 7 ,
@@ -133,7 +128,6 @@ class Welcome extends Component {
             <Typography variant="subheading" align="left" color="inherit" style={{color:'#ffffff'}} component="p">
             2. 每一组任务结束后，系统会弹出一个针对此组任务的问卷，也就是说，每一个参与者需要填写两份问卷。请您认真填写。
             </Typography>
-            <br/><br/>
             <center>
               <Button variant="contained" size="large" color="primary" className={classes.button} onClick={() => { this.props.history.push('task')} }>
               开始测试

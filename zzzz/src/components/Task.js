@@ -81,22 +81,38 @@ class Task extends Component {
 
       case 2:
         return(
-          <Question2></Question2>
+          <Question2 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question2>
           );
 
       case 3:
         return(
-          <Question3></Question3>
+          <Question3 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question3>
           );
 
       case 4:
         return(
-            <Question4></Question4>
+            <Question4 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question4>
           );
 
       case 5:
       return(
-         <Question5></Question5>
+         <Question5 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question5>
         );            
 
       case 6:
@@ -130,27 +146,47 @@ class Task extends Component {
 
       case 7:
       return(
-        <Question6></Question6>
+        <Question6 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question6>
         );
 
       case 8:
       return(
-        <Question7></Question7>
+        <Question7 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question7>
         );
 
       case 9:
       return(
-        <Question8></Question8>       
+        <Question8 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question8>      
         );
 
       case 10:
       return(
-       <Question9></Question9> 
+       <Question9 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question9>
         );
 
       case 11:
       return(
-       <Question10></Question10>         
+       <Question10 
+            current={this.state.current} 
+            onButtonClickNext={() => this.onButtonClickNext()} 
+            onButtonClickBack={() => this.onButtonClickBack()} 
+            ></Question10>      
         );
 
       case 12:

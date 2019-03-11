@@ -68,7 +68,7 @@ class Question5 extends Component {
                 <Grid item xs={4} >
                         <Card className={classes.card}>
                         <div className={classes.gjy} >
-                            <Typography variant="h6" className={classes.title} >问题一：图片中是否含有以下元素？</Typography>
+                            <Typography variant="h6" className={classes.title} >问题五：图片中是否含有以下元素？</Typography>
                             <Divider className={classes.divider} />
                             <FormControl component="fieldset" className={classes.formControl}>
                             <FormGroup>
@@ -114,12 +114,12 @@ class Question5 extends Component {
                             <div className={classes.buttonGroup} >
                                 <Grid container spacing={24} >
                                     <Grid item xs={12}>
-                                        <Button variant="contained" color="secondary" className={classes.button1}>
+                                        <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {this.props.onButtonClickNext()}} >
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </Button>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Button variant="contained" color="primary" className={classes.button2}>
+                                        <Button variant="contained" color="primary" className={classes.button2} onClick={() => {this.props.onButtonClickBack()}} >
                                         返回上一题
                                         </Button>
                                     </Grid>
