@@ -98,7 +98,7 @@ const styles = theme => ({
   }
 });
 
-class Welcome extends Component {
+class Finish extends Component {
   
   render() {
     const { classes } = this.props;
@@ -117,22 +117,9 @@ class Welcome extends Component {
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
             <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} component="p">
-            参与者您好，欢迎您参与本次有关植物学分类的公众科学任务。
+            参与者您好，欢迎您参与本次有关植物学分类的公众科学任务。请继续填问卷
             </Typography>
-            <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} className={classes.greet} component="p">
-            此次任务预计占用您8-10分钟，在任务开始前，请您仔细阅读如下内容：
-            </Typography>
-            <Typography variant="subheading" align="left" color="inherit" style={{color:'#ffffff'}} component="p">
-            1. 每个参与者将会完成两组公众科学任务，开始第一组任务后，您可以在任何时间通过点击页面下方的“结束任务”退出任务，然后进入第二组任务，第二组任务也可以随时退出。所有任务结束后，任务会自动退出。
-            </Typography>
-            <Typography variant="subheading" align="left" color="inherit" style={{color:'#ffffff'}} component="p">
-            2. 每一组任务结束后，系统会弹出一个针对此组任务的问卷，也就是说，每一个参与者需要填写两份问卷。请您认真填写。
-            </Typography>
-            <center>
-              <Button variant="contained" size="large" color="primary" className={classes.button} onClick={() => { this.props.history.push('task')} }>
-              开始测试
-              </Button>
-            </center>
+            
           </div>
         </div>
       </main>
@@ -141,8 +128,8 @@ class Welcome extends Component {
   }
 }
 
-Welcome.propTypes = {
+Finish.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Welcome);
+export default withStyles(styles)(Finish);
