@@ -112,14 +112,16 @@ class Finish extends Component {
           </Typography>
         </Toolbar>
       </AppBar>
-
+      
       <main className={classes.layout}>
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
             <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} component="p">
             参与者您好，欢迎您参与本次有关植物学分类的公众科学任务。请继续填问卷
             </Typography>
-            
+            <center>  
+            <Button variant="contained" color="primary" onClick={() => { this.props.history.push('survey') }} > 填写问卷 </Button>
+            </center>
           </div>
         </div>
       </main>

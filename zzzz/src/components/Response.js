@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -100,6 +98,27 @@ const styles = theme => ({
 
 class Response extends Component {
   
+
+  selectButton = () => {
+    const { classes } = this.props;
+    if(this.props.current == 36){
+      return(
+        <Button variant="contained" color="primary" className={classes.button2} onClick={() => {
+          this.props.history.push('survey')
+        }} >
+        进入下一阶段
+        </Button>);
+    } else {
+      return(
+        <Button variant="contained" color="primary" className={classes.button2} onClick={() => {
+                                    this.props.onButtonClickNextPure()
+                                }} >
+                                进入下一题
+        </Button>
+      );
+    }
+  };
+  
   render() {
     const { classes } = this.props;
 
@@ -109,9 +128,17 @@ class Response extends Component {
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
             <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} component="p">
-            反馈
-            </Typography>
             
+            </Typography>
+            <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} component="p">
+            刚刚您做的5道题中您总共做对{this.props.ratio * 5}道 <br/>
+            </Typography>   
+            <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} component="p">
+            分别是{this.props.correctQuestions}
+            </Typography>
+            <center>
+            {this.selectButton()}
+            </center>
           </div>
         </div>
       </main>
