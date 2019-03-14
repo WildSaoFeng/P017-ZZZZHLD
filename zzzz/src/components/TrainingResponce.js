@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -96,37 +94,77 @@ const styles = theme => ({
   greet:{
     marginBottom:theme.spacing.unit * 3,
   },
-  backhome:{
-    marginRight:theme.spacing.unit * 3,
+  centerContent:{
+    marginBottom: 30
+  },
+  centerContent2:{
+    marginTop: 160
   }
 });
 
-class Finish extends Component {
+class TrainingResponce extends Component {
+
+
+  selectContent = () => {
+    const { classes } = this.props;
+    let correctQuestions = this.props.correctQuestions;
+    let correctQuestion;
+    let outputQuestions = '';
+    for(correctQuestion in correctQuestions){
+      correctQuestion = 1 + Number(correctQuestion);
+      outputQuestions = outputQuestions + correctQuestion + '. ';
+    }
+    if(this.props.crt === 0){
+      return(
+        <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
+            刚刚您做的5道题中您总共做对{this.props.crt}道 <br/>
+        </Typography>
+      );
+    } else if(this.props.crt === 1) {
+      return(
+        <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
+            刚刚您做的5道题中您只做对了第{outputQuestions}道 <br/>
+        </Typography>
+      );
+    }else{
+      return(
+        <div>
+          <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
+              刚刚您做的5道题中您总共做对{this.props.crt}道 <br/>
+          </Typography>
+          <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
+            分别是第{outputQuestions}道
+          </Typography>
+        </div>
+      );
+    }
+  }
   
   render() {
     const { classes } = this.props;
+    let correctQuestions = this.props.correctQuestions;
+    let num = this.props.num;
+    let correctQuestion;
+    let outputQuestions = '';
+    for(correctQuestion in correctQuestions){
+      correctQuestion = Number(num) + Number(correctQuestion);
+      outputQuestions = outputQuestions + correctQuestion + '. ';
+    }
 
     return (
       <React.Fragment>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" className={classes.backhome} onClick={() => {
-              this.props.history.push('home')
-          }} noWrap>
-          首页
-          </Typography>
-          <Typography variant="h6" color="inherit" noWrap>
-          Botanical Classification 植物学分类任务
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      
       <main className={classes.layout}>
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
-            <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} component="p">
-            提交成功，感谢您参与本次有关植物学分类的公众科学任务
+            {this.selectContent()}
+            <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
             </Typography>
+            <center>
+            <Button variant="contained" color="primary" className={classes.button2} onClick={() => {
+            this.props.onButtonReturnTask()}} >
+            结束训练
+            </Button>
+            </center>
           </div>
         </div>
       </main>
@@ -135,8 +173,8 @@ class Finish extends Component {
   }
 }
 
-Finish.propTypes = {
+TrainingResponce.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Finish);
+export default withStyles(styles)(TrainingResponce);

@@ -72,6 +72,10 @@ class Survey extends Component {
         });
     }
 
+    handleClick = () => {
+        this.props.history.push('finish');
+    }
+
     surveyQuestion = (i) => {
         i = i - 1;
         // console.log(this.state.selectedValue[i]);
@@ -162,7 +166,7 @@ class Survey extends Component {
             return(
                 <Grid item xs={12} >
                     <center>
-                    <Button variant='contained' color='secondary' size='large' >提交问卷</Button>
+                    <Button variant='contained' color='secondary' size='large' onClick={this.handleClick} >提交问卷</Button>
                     </center>
                 </Grid>
             );

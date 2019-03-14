@@ -22,7 +22,7 @@ const styles = theme => ({
     },
     card: {
         width: 400,
-        height: 300,
+        height: 350,
     },
     divider: {
         margin: `${theme.spacing.unit * 2}px 0`,
@@ -31,9 +31,9 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 3,
     },
     media:{
-        height: 0,
-        paddingTop: '56.25%', 
-        marginTop:'30'
+        marginTop:17,
+        width:400,
+        height:300,
     },
     cardGroup:{
         marginLeft: theme.spacing.unit * 30 ,
@@ -41,6 +41,9 @@ const styles = theme => ({
     },
     button1:{
         length:100,
+    },
+    grid_check:{
+        marginBottom: - theme.spacing.unit * 7,
     }
 });
 
@@ -88,6 +91,8 @@ const imgMap = {
     "34":"https://i.loli.net/2019/03/12/5c8722a1e7f4e.jpg",
     "35":"https://i.loli.net/2019/03/12/5c8722a5ec8f3.jpg"    
 }
+
+
 class Question extends Component {
     state = {
         A: false,
@@ -109,6 +114,18 @@ class Question extends Component {
         } else {
             return false;
         }
+    };
+
+    handleNB(){
+        this.setState({
+            A: false,
+            B: false,
+            C: false,
+            D: false,
+            E: false,
+            F: false,
+            G: false,
+        });
     }
 
     selectButton = () => {
@@ -119,11 +136,13 @@ class Question extends Component {
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={this.props.classes.button1} onClick={() => {
-                                if(this.isSimple()){
-                                   this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C],correctAnswers)
+                                if(this.props.isSimple){
+                                   this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C],correctAnswers);
+                                   this.handleNB();
                                 }
                                 else
                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
+                                   this.handleNB();
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -142,10 +161,14 @@ class Question extends Component {
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
-                                if(this.isSimple())
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers)
-                                else
-                                this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
+                                if(this.props.isSimple){
+                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers);
+                                }
+                                    
+                                else{
+                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
+                                    this.props.history.push('survey');
+                                }
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -153,6 +176,7 @@ class Question extends Component {
                         <Grid item xs={4}>
                             <Button variant="contained" color="primary" className={classes.button2} onClick={() => {
                                 this.props.onButtonClickBack()
+                                this.handleNB();
                                 }} >
                                 返回上一题
                             </Button>
@@ -171,10 +195,14 @@ class Question extends Component {
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
-                                if(this.isSimple())
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers)
-                                else
+                                if(this.props.isSimple){
+                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers);
+                                    this.handleNB();
+                                }
+                                else{
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
+                                    this.handleNB();
+                                }
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -182,6 +210,7 @@ class Question extends Component {
                         <Grid item xs={4}>
                             <Button variant="contained" color="primary" className={classes.button2} onClick={() => {
                                     this.props.onButtonClickBack()
+                                    this.handleNB();
                                 }} >
                                 返回上一题
                             </Button>
@@ -201,6 +230,7 @@ class Question extends Component {
         const { classes } = this.props;
         const {A,B,C,D,E,F,G} = this.state;
         const handleChange = this.handleChange;
+        console.log(this.props.current);
         function selectContent(isSimple) {
             if(isSimple){
                 return(
@@ -323,16 +353,15 @@ class Question extends Component {
                                         
                                     </Grid>
                                     <Grid item xs={4}>
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={G}
-                                            onChange={handleChange("G")}
-                                            />
-                                        }
-                                        label="种子"
-                                        /> 
-                                        
+                                        <FormControlLabel
+                                            control={
+                                                <Checkbox
+                                                checked={G}
+                                                onChange={handleChange("G")}
+                                                />
+                                            }
+                                            label="种子"
+                                            /> 
                                     </Grid>
                                 </Grid>
                             </FormGroup>
@@ -357,7 +386,7 @@ class Question extends Component {
                         <div className={classes.gjy} >
                             <Typography variant="h6" className={classes.title} >问题{hzMap[this.props.current - 1]}：图片中是否含有以下元素？</Typography>
                             <Divider className={classes.divider} />
-                            {selectContent(this.isSimple())}
+                            {selectContent(this.props.isSimple)}
                             {this.selectButton()}                          
                         </div>
                     </Card>

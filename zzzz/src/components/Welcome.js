@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const styles = theme => ({
   '@global': {
@@ -23,32 +23,9 @@ const styles = theme => ({
   },
   layout: { 
     backgroundImage: `url('https://i.loli.net/2019/03/05/5c7dfae9d1688.jpg')`,
-    backgroundAttachment: 'fixed',
-    backgroundSize: '100% 100%',
-    paddingBottom: theme.spacing.unit * 40,
-  },
-  layout2: {
-    //高校组成以及蓝图
-    // backgroundColor:'#05122b', //紫黑色
-    backgroundColor:'#1d213c', //紫黑色
-    // backgroundImage: `url('https://i.loli.net/2018/08/25/5b810c2dc3225.jpeg')`, 
-    paddingTop: theme.spacing.unit * 7,
-    paddingBottom: theme.spacing.unit * 7,
-  },
-  layout3: {
-    //价值主张
-    backgroundColor:'#272b47', //更浅的紫黑色
-    paddingTop: theme.spacing.unit * 7 ,
-    paddingBottom: theme.spacing.unit * 7 ,
-  },
-  layout4: {
-    backgroundColor:'#16192f', //更深的紫黑色
-    paddingTop: theme.spacing.unit * 7,
-    paddingBottom: theme.spacing.unit * 7,
-  },
-  layout5: {
-    backgroundColor:'#272b47', 
-    color:"#0b91a5"
+    backgroundAttachment: 'absolute',
+    backgroundSize: '100%',
+    paddingBottom: theme.spacing.unit * 70,
   },
   heroContent: {
     maxWidth: 1000,
@@ -98,6 +75,9 @@ const styles = theme => ({
   },
   greet:{
     marginBottom:theme.spacing.unit * 3,
+  },
+  backhome:{
+    marginRight:theme.spacing.unit * 3,
   }
 });
 
@@ -110,6 +90,11 @@ class Welcome extends Component {
       <React.Fragment>
       <AppBar position="static">
         <Toolbar>
+          <Typography variant="h6" color="inherit" className={classes.backhome} onClick={() => {
+              this.props.history.push('home')
+          }} noWrap>
+          首页
+          </Typography>
           <Typography variant="h6" color="inherit" noWrap>
           Botanical Classification 植物学分类任务
           </Typography>
