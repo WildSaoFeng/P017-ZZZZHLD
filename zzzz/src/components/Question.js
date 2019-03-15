@@ -108,13 +108,6 @@ class Question extends Component {
         this.setState({ [name]: event.target.checked });
     };
 
-    isSimple = () => {
-        if( Number(this.props.group) <=4 ){
-            return true;
-        } else {
-            return false;
-        }
-    };
 
     handleNB(){
         this.setState({
@@ -140,15 +133,17 @@ class Question extends Component {
                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C],correctAnswers);
                                    this.handleNB();
                                 }
-                                else
-                                   this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
-                                   this.handleNB();
+                                else {
+                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
+                                    this.handleNB();
+                                }
+                                   
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
                         </Grid>
                         <Grid item xs={4}>
-                            <Button variant="contained" color="primary" className={this.props.classes.button2} onClick={() => {this.props.history.push('survey')} } >
+                            <Button variant="contained" color="primary" className={this.props.classes.button2} onClick={() => {this.props.onButtonClickEnd()} } >
                             结束任务
                             </Button>
                         </Grid>
@@ -163,9 +158,7 @@ class Question extends Component {
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
                                 if(this.props.isSimple){
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers);
-                                }
-                                    
-                                else{
+                                }else{
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
                                     this.props.history.push('survey');
                                 }
@@ -182,7 +175,7 @@ class Question extends Component {
                             </Button>
                         </Grid>
                         <Grid item xs={4}>
-                            <Button variant="contained" color="primary" className={classes.button2} onClick={() => {this.props.history.push('survey')}} >
+                            <Button variant="contained" color="primary" className={classes.button2} onClick={() => {this.props.onButtonClickEnd()}} >
                             结束任务
                             </Button>
                         </Grid>
@@ -198,8 +191,7 @@ class Question extends Component {
                                 if(this.props.isSimple){
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers);
                                     this.handleNB();
-                                }
-                                else{
+                                }else{
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
                                     this.handleNB();
                                 }
@@ -216,7 +208,7 @@ class Question extends Component {
                             </Button>
                         </Grid>
                         <Grid item xs={4}>
-                            <Button variant="contained" color="primary" className={classes.button2} onClick={() => {this.props.history.push('survey')}} >
+                            <Button variant="contained" color="primary" className={classes.button2} onClick={() => {this.props.onButtonClickEnd()}} >
                             结束任务
                             </Button>
                         </Grid>
@@ -226,149 +218,154 @@ class Question extends Component {
         }
     }
 
+    selectContent = () => {
+        const { classes } = this.props;
+        const {A,B,C,D,E,F,G} = this.state;
+        const handleChange = this.handleChange;
+        if(this.props.isSimple){
+            return(
+                <FormControl component="fieldset" className={classes.formControl}>
+                        <FormGroup>
+                            <Grid container spacing={40} >
+                                <Grid item xs={4}>
+                                    <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                        checked={A}
+                                        onChange={handleChange("A")}
+                                        value="A"
+                                        />
+                                    }
+                                    label="根"
+                                    />
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                        checked={B}
+                                        onChange={handleChange("B")}
+                                        value="B"
+                                        />
+                                    }
+                                    label="茎"
+                                    />
+                                </Grid>
+                                <Grid item xs={4}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                        checked={C}
+                                        onChange={handleChange("C")}
+                                        value="C"
+                                        />
+                                    }
+                                    label="叶"
+                                    /> 
+                                </Grid>
+                            </Grid>
+                        </FormGroup>
+                        </FormControl>
+            );
+            
+        } else {
+            return(
+                 <FormControl component="fieldset" className={classes.formControl}>
+                        <FormGroup>
+                            <Grid container spacing={40} >
+                                <Grid className = {classes.grid_check} item xs={4}>
+                                    <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                        checked={A}
+                                        onChange={handleChange("A")}
+                                        />
+                                    }
+                                    label="根"
+                                    />
+                                </Grid>
+                                <Grid className = {classes.grid_check} item xs={4}>
+                                    <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                        checked={B}
+                                        onChange={handleChange("B")}
+                                        />
+                                    }
+                                    label="茎"
+                                    />
+                                </Grid>
+                                <Grid className = {classes.grid_check} item xs={4}>
+                                    
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                        checked={C}
+                                        onChange={handleChange("C")}
+                                        />
+                                    }
+                                    label="叶"
+                                    /> 
+                                </Grid>
+                                <Grid item className = {classes.grid_check} xs={4}>
+                                    <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                        checked={D}
+                                        onChange={handleChange("D")}
+                                        />
+                                    }
+                                    label="嫩芽"
+                                    />
+                                </Grid>
+                                <Grid item className = {classes.grid_check}  xs={4}>
+                                    <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                        checked={E}
+                                        onChange={handleChange("E")}
+                                        />
+                                    }
+                                    label="花蕊"
+                                    />
+                                </Grid>
+                                <Grid item className = {classes.grid_check} xs={4}>
+                                    
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                        checked={F}
+                                        onChange={handleChange("F")}
+                                        />
+                                    }
+                                    label="果实"
+                                    /> 
+                                    
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                            checked={G}
+                                            onChange={handleChange("G")}
+                                            />
+                                        }
+                                        label="种子"
+                                        /> 
+                                </Grid>
+                            </Grid>
+                        </FormGroup>
+                        </FormControl>
+            );
+        }
+    }
+
     render(){
         const { classes } = this.props;
         const {A,B,C,D,E,F,G} = this.state;
         const handleChange = this.handleChange;
-        console.log(this.props.current);
-        function selectContent(isSimple) {
-            if(isSimple){
-                return(
-                    <FormControl component="fieldset" className={classes.formControl}>
-                            <FormGroup>
-                                <Grid container spacing={40} >
-                                    <Grid item xs={4}>
-                                        <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={A}
-                                            onChange={handleChange("A")}
-                                            value="A"
-                                            />
-                                        }
-                                        label="根"
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={B}
-                                            onChange={handleChange("B")}
-                                            value="B"
-                                            />
-                                        }
-                                        label="茎"
-                                        />
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={C}
-                                            onChange={handleChange("C")}
-                                            value="C"
-                                            />
-                                        }
-                                        label="叶"
-                                        /> 
-                                    </Grid>
-                                </Grid>
-                            </FormGroup>
-                            </FormControl>
-                );
-                
-            } else {
-                return(
-                     <FormControl component="fieldset" className={classes.formControl}>
-                            <FormGroup>
-                                <Grid container spacing={40} >
-                                    <Grid className = {classes.grid_check} item xs={4}>
-                                        <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={A}
-                                            onChange={handleChange("A")}
-                                            />
-                                        }
-                                        label="根"
-                                        />
-                                    </Grid>
-                                    <Grid className = {classes.grid_check} item xs={4}>
-                                        <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={B}
-                                            onChange={handleChange("B")}
-                                            />
-                                        }
-                                        label="茎"
-                                        />
-                                    </Grid>
-                                    <Grid className = {classes.grid_check} item xs={4}>
-                                        
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={C}
-                                            onChange={handleChange("C")}
-                                            />
-                                        }
-                                        label="叶"
-                                        /> 
-                                    </Grid>
-                                    <Grid item className = {classes.grid_check} xs={4}>
-                                        <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={D}
-                                            onChange={handleChange("D")}
-                                            />
-                                        }
-                                        label="嫩芽"
-                                        />
-                                    </Grid>
-                                    <Grid item className = {classes.grid_check}  xs={4}>
-                                        <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={E}
-                                            onChange={handleChange("E")}
-                                            />
-                                        }
-                                        label="花蕊"
-                                        />
-                                    </Grid>
-                                    <Grid item className = {classes.grid_check} xs={4}>
-                                        
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={F}
-                                            onChange={handleChange("F")}
-                                            />
-                                        }
-                                        label="果实"
-                                        /> 
-                                        
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                checked={G}
-                                                onChange={handleChange("G")}
-                                                />
-                                            }
-                                            label="种子"
-                                            /> 
-                                    </Grid>
-                                </Grid>
-                            </FormGroup>
-                            </FormControl>
-                );
-            }
-        }
+        console.log(this.props.isSimple);
+        
 
         return (
             <Grid container spacing={8} className={classes.cardGroup} >
@@ -386,7 +383,7 @@ class Question extends Component {
                         <div className={classes.gjy} >
                             <Typography variant="h6" className={classes.title} >问题{hzMap[this.props.current - 1]}：图片中是否含有以下元素？</Typography>
                             <Divider className={classes.divider} />
-                            {selectContent(this.props.isSimple)}
+                            {this.selectContent()}
                             {this.selectButton()}                          
                         </div>
                     </Card>

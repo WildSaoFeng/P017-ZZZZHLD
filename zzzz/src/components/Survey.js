@@ -183,7 +183,7 @@ class Survey extends Component {
 
     render(){
         const { classes } = this.props;
-
+        // console.log(this.props.userAnswers);
         
 
         return (

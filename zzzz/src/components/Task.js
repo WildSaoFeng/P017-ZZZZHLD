@@ -9,6 +9,7 @@ import Question from './Question';
 import Response from './Response';
 import TrainingResponce from './TrainingResponce';
 import TrainingQuestion from './TrainingQuestion';
+import Survey from './Survey';
 
 const styles = theme => ({
   backhome: {
@@ -28,8 +29,8 @@ class Task extends Component {
     crt: 0,
     correctQuestions: [],
     isTraining: false,
-    isResponsible: false,
-    isSimple: false,
+    isResponsible: true,
+    isSimple: true,
     trainingCurrent: 1,
   };
 
@@ -52,7 +53,7 @@ class Task extends Component {
   }
 
   // componentWillMount(){
-  //   let groupType = 1;
+  //   let groupType = 3;
   //   this.divideGroup(groupType);
   // }
 
@@ -110,7 +111,7 @@ class Task extends Component {
 
   onButtonClickEnd = () => {
     this.setState({
-      ended: true
+      current:37
     });
   };
 
@@ -317,7 +318,15 @@ class Task extends Component {
               history={this.props.history}
               correctQuestions={this.state.correctQuestions}
               onButtonClickNextPure ={() => this.onButtonClickNextPure()}
+              onButtonClickEnd={() => this.onButtonClickEnd()}
             ></Response>
+            );
+        case 37:
+            return(
+              <Survey 
+                history={this.props.history}
+                userAnswers={this.state.userAnswers}
+              ></Survey>
             );
 
         default:
@@ -325,6 +334,7 @@ class Task extends Component {
               <Question 
               current={this.state.current} 
               group={this.state.group}
+              isSimple={this.state.isSimple}
               isResponsible={this.state.isResponsible}
               history={this.props.history}
               onButtonClickNext={(userAnswer, correctAnswer) => this.onButtonClickNext(userAnswer, correctAnswer)} //子组件向父组件传参

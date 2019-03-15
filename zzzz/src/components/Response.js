@@ -110,7 +110,7 @@ class Response extends Component {
     if(this.props.current == 36){
       return(
         <Button variant="contained" color="primary" className={classes.button2} onClick={() => {
-          this.props.history.push('survey')
+          this.props.onButtonClickEnd();
         }} >
         进入下一阶段
         </Button>);
