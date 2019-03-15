@@ -111,10 +111,10 @@ class Welcome extends Component {
             此次任务预计占用您8-10分钟，在任务开始前，请您仔细阅读如下内容：
             </Typography>
             <Typography variant="subheading" align="left" color="inherit" style={{color:'#ffffff'}} component="p">
-            1. 每个参与者将会完成两组公众科学任务，开始第一组任务后，您可以在任何时间通过点击页面下方的“结束任务”退出任务，然后进入第二组任务，第二组任务也可以随时退出。所有任务结束后，任务会自动退出。
+            1.       每个参与者将会完成一组公众科学任务，您可以在任何时间通过点击页面下方的“结束任务”退出任务。所有题目结束后，任务会自动退出。
             </Typography>
             <Typography variant="subheading" align="left" color="inherit" style={{color:'#ffffff'}} component="p">
-            2. 每一组任务结束后，系统会弹出一个针对此组任务的问卷，也就是说，每一个参与者需要填写两份问卷。请您认真填写。
+            2.       点击“结束任务”或者任务自动结束后，系统会弹出一个针对此组任务的问卷，请您认真填写。
             </Typography>
             <br/><br/>
             <center>

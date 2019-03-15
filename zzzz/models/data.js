@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
 
 const DataSchema = mongoose.Schema({
-    id: Number,
-    answer: [{
-        qid: Number,
-        uas: [String],
-    }],
-
+    groupType: Number,
+    userAnswers: [[Boolean]],
+    selectedValue: [String]
 });
 
 const Data = module.exports = mongoose.model('Data', DataSchema);

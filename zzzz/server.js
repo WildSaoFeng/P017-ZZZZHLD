@@ -12,7 +12,7 @@ const PORT = process.env.port || 8000;
 // Begin App
 
 const app = express();
-// app.use(express.static(path.join(__dirname, "./build")));
+app.use(express.static(path.join(__dirname, "./build")));
 
 app.use(cors());
 

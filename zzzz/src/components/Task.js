@@ -32,9 +32,13 @@ class Task extends Component {
     isResponsible: true,
     isSimple: true,
     trainingCurrent: 1,
+    groupType: 1
   };
 
   divideGroup = (groupType) => {
+    this.setState({
+      groupType: groupType
+    });
     let simple = false, responsible = false, training = false;
     if(groupType <= 4 ) {
       simple = true;
@@ -52,10 +56,11 @@ class Task extends Component {
     });
   }
 
-  // componentWillMount(){
-  //   let groupType = 3;
-  //   this.divideGroup(groupType);
-  // }
+  componentWillMount(){
+    let groupType = Math.floor(Math.random() * Math.floor(7)) + 1;
+    console.log("% " + groupType);
+    this.divideGroup(groupType);
+  }
 
 
   onButtonClickNext = (userAnswer, correctAnswer) => {
@@ -322,10 +327,15 @@ class Task extends Component {
             ></Response>
             );
         case 37:
+            console.log('* '+this.props.history);
+            console.log('** '+this.state.userAnswers);
+            console.log('*** '+this.state.groupType);
+            
             return(
               <Survey 
                 history={this.props.history}
                 userAnswers={this.state.userAnswers}
+                groupType={this.state.groupType}
               ></Survey>
             );
 

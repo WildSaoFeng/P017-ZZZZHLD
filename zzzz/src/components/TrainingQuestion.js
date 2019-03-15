@@ -216,7 +216,7 @@ class TrainingQuestion extends Component {
                                             value="A"
                                             />
                                         }
-                                        label="根"
+                                        label="叶"
                                         />
                                     </Grid>
                                     <Grid item xs={4}>
@@ -240,7 +240,7 @@ class TrainingQuestion extends Component {
                                             value="C"
                                             />
                                         }
-                                        label="叶"
+                                        label="花蕾"
                                         /> 
                                     </Grid>
                                 </Grid>

@@ -14,6 +14,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Radio from "@material-ui/core/Radio";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import RadioButtonCheckedIcon from "@material-ui/icons/RadioButtonChecked";
+import axios from 'axios';
 
 
 const styles = theme => ({
@@ -73,7 +74,15 @@ class Survey extends Component {
     }
 
     handleClick = () => {
-        
+        axios.post('data', {
+            groupType: this.props.groupType,
+            userAnswers: this.props.userAnswers,
+            selectedValue: this.state.selectedValue
+        })
+        console.log(this.props.groupType);
+        console.log(this.props.userAnswers);
+        console.log(this.state.selectedValue);
+
         this.props.history.push('finish');
     }
 

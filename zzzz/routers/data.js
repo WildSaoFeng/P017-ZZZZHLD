@@ -5,10 +5,12 @@ const Data = require('../models/data');
 
 router.post('/', (req, res, next) => {
     Data.addData(new Data({
-      id: req.body.id,
-      answer: req.body.answer,
+      groupType: req.body.groupType,
+      userAnswers: req.body.userAnswers,
+      selectedValue: req.body.selectedValue
     }));
     console.log(req.body.answer);
+    console.log(req.body.groupType);
     res.send('Get info !');
 });
 
