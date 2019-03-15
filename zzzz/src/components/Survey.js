@@ -73,6 +73,7 @@ class Survey extends Component {
     }
 
     handleClick = () => {
+        
         this.props.history.push('finish');
     }
 
