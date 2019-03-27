@@ -44,6 +44,10 @@ const styles = theme => ({
     hahtitle:{
         fontSize:25,
         marginLeft:240,
+    },
+    grid_check_small:{
+        // marginRight:  theme.spacing.unit * 20,
+        width: 150,
     }
 });
 
@@ -90,6 +94,13 @@ const imgMap = {
     "33":"https://i.loli.net/2019/03/12/5c8722a1bdf60.jpg",
     "34":"https://i.loli.net/2019/03/12/5c8722a1e7f4e.jpg",
     "35":"https://i.loli.net/2019/03/12/5c8722a5ec8f3.jpg"    
+}
+const tipMap = {
+    1:'提示1',
+    2:'提示2',
+    3:'提示3',
+    4:'提示4',
+    5:'提示5'
 }
 
 
@@ -184,8 +195,9 @@ class TrainingQuestion extends Component {
         const {A,B,C} = this.state;
         const handleChange = this.handleChange;
 
-
+        console.log(this.props.trainingCurrent);
         return (
+             
             <Grid container spacing={8} className={classes.cardGroup} >
                 <Grid item xs={12} >
                     <Typography variant="display1" className={classes.hahtitle} >此题目为训练题目，不计入最后分数</Typography>
@@ -241,6 +253,7 @@ class TrainingQuestion extends Component {
                                             />
                                         }
                                         label="花蕾"
+                                        className={classes.grid_check_small}
                                         /> 
                                     </Grid>
                                 </Grid>
@@ -249,6 +262,9 @@ class TrainingQuestion extends Component {
                             {this.selectButton()}
                         </div>
                     </Card>
+                </Grid>
+                <Grid item xs={12} >
+                    <Typography variant="display1" className={classes.hahtitle} >{tipMap[this.props.trainingCurrent]}</Typography>
                 </Grid>
             </Grid>
         );

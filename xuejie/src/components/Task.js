@@ -4,10 +4,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+
 import Question from './Question';
 import Response from './Response';
-import TrainingResponce from './TrainingResponce';
-import TrainingQuestion from './TrainingQuestion';
 import Survey from './Survey';
 
 const styles = theme => ({
@@ -27,39 +26,18 @@ class Task extends Component {
     correctAnswersT: [[false,false,false],[false,false,false],[false,false,false],[false,false,false],[false,false,false],],
     crt: 0,
     correctQuestions: [],
-    isTraining: true,
     isResponsible: true,
-    isSimple: true,
+    isSimple: false,
     trainingCurrent: 1,
     groupType: 1
   };
 
-  divideGroup = (groupType) => {
+  componentWillMount(){ // 产生1到6的随机数
+    let groupType = Math.floor(Math.random() * Math.floor(5)) + 1;
     this.setState({
-      groupType: groupType
-    });
-    let simple = false, responsible = false, training = false;
-    if(groupType <= 4 ) {
-      simple = true;
-    }
-    if(groupType == 3 || this.state.groupType == 4 || this.state.groupType == 7 || this.state.groupType == 8) {
-      responsible = true;
-    }
-    if(groupType % 2 == 0) {
-      training = true;
-    }
-    this.setState({
-      isSimple: simple,
-      isResponsible: responsible,
-      isTraining: training
-    });
+      groupType:groupType
+    })
   }
-
-  // componentWillMount(){ 
-  //   let groupType = Math.floor(Math.random() * Math.floor(7)) + 1;
-  //   console.log("% " + groupType);
-  //   this.divideGroup(groupType);
-  // }
 
 
   onButtonClickNext = (userAnswer, correctAnswer) => {
@@ -194,35 +172,26 @@ class Task extends Component {
   }
   
   getcurrent = () => {
-    if(this.state.isTraining) {
-      switch(this.state.trainingCurrent) {
-        case 6:
-          return (
-            <TrainingResponce 
-              trainingCurrent={this.state.trainingCurrent} 
+
+      switch(this.state.current)
+      {
+        case 3:
+          if(!this.state.isResponsible) {
+            this.setState({
+              current: this.state.current + 1
+            });
+            break ;
+          }
+          return(
+              <Response 
+              num={1} 
+              current={this.state.current} 
+              groupType={this.state.groupType}
               crt={this.state.crt}
               history={this.props.history}
               correctQuestions={this.state.correctQuestions}
-              onButtonReturnTask ={() => this.onButtonReturnTask()}
-            ></TrainingResponce>
-          );
-        default:
-          return(
-             <TrainingQuestion 
-              trainingCurrent={this.state.trainingCurrent} 
-              history={this.props.history}
-              trainingCurrent={this.state.trainingCurrent} 
-              onButtonClickNextT={(userAnswerT, correctAnswerT,last) => this.onButtonClickNextT(userAnswerT, correctAnswerT,last)} //子组件向父组件传参
-              onButtonClickBackT={() => this.onButtonClickBackT()} 
-              onButtonClickEnd={() => this.onButtonClickEnd()}
-              ></TrainingQuestion>
-          );
-      }
-
-
-    } else {
-      switch(this.state.current)
-      {
+              onButtonClickNextPure ={() => this.onButtonClickNextPure()}
+          ></Response>);
         case 6:
           if(!this.state.isResponsible) {
             this.setState({
@@ -234,6 +203,7 @@ class Task extends Component {
               <Response 
               num={1} 
               current={this.state.current} 
+              groupType={this.state.groupType}
               crt={this.state.crt}
               history={this.props.history}
               correctQuestions={this.state.correctQuestions}
@@ -248,7 +218,8 @@ class Task extends Component {
           }
           return(
               <Response 
-              num={6} 
+              num={6}
+              groupType={this.state.groupType}
               current={this.state.current} 
               ratio={this.state.ratio}
               crt={this.state.crt}
@@ -269,6 +240,7 @@ class Task extends Component {
               current={this.state.current} 
               ratio={this.state.ratio}
               crt={this.state.crt}
+              groupType={this.state.groupType}
               history={this.props.history}
               correctQuestions={this.state.correctQuestions}
               onButtonClickNextPure ={() => this.onButtonClickNextPure()}
@@ -286,6 +258,7 @@ class Task extends Component {
               current={this.state.current}  
               ratio={this.state.ratio}
               crt={this.state.crt}
+              groupType={this.state.groupType}
               history={this.props.history}
               correctQuestions={this.state.correctQuestions}
               onButtonClickNextPure ={() => this.onButtonClickNextPure()}
@@ -303,6 +276,7 @@ class Task extends Component {
               current={this.state.current} 
               ratio={this.state.ratio}
               crt={this.state.crt}
+              groupType={this.state.groupType}
               history={this.props.history}
               correctQuestions={this.state.correctQuestions}
               onButtonClickNextPure ={() => this.onButtonClickNextPure()}
@@ -353,7 +327,6 @@ class Task extends Component {
               ></Question>
             );
       }
-    }
     
   }
 

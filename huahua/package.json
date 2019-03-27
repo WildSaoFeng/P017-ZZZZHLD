@@ -1,0 +1,38 @@
+{
+  "name": "zzzz",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.1",
+    "antd": "^3.13.6",
+    "axios": "^0.18.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.4.18",
+    "passport": "^0.4.0",
+    "path": "^0.12.7",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-scripts": "2.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "react-router-dom": "^4.3.1"
+  }
+}

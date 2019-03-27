@@ -373,7 +373,7 @@ class Question extends Component {
         const { classes } = this.props;
         const {A,B,C,D,E,F,G} = this.state;
         const handleChange = this.handleChange;
-        console.log(this.props.isSimple);
+        // console.log(this.props.isSimple);
         
 
         return (
