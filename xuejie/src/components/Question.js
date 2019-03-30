@@ -60,43 +60,42 @@ const correctAnswers = [
 
 const hzMap = ['一','二','三','四','五','六','六','七','八','九','十','十一','十一','十二','十三','十四','十五','十六','十六','十七','十八','十九','二十','二十一','二十一','二十二','二十三','二十四','二十五','二十六','二十六','二十七','二十八','二十九','三十']
 const imgMap = {
-    "1":"https://i.loli.net/2019/03/12/5c8720ac317ab.jpg",
-    "2":"https://i.loli.net/2019/03/12/5c8720a9e6602.jpg",
-    "3":"https://i.loli.net/2019/03/12/5c871fb6cdeca.jpg",
-    "4":"https://i.loli.net/2019/03/12/5c871fcbbdd57.jpg",
-    "5":"https://i.loli.net/2019/03/12/5c871fc7b51e3.jpg",
+    "1":"https://i.loli.net/2019/03/12/5c8724ae4fe63.jpg",
+    "2":"https://i.loli.net/2019/03/12/5c871fb6cdeca.jpg",
+    "3":"https://i.loli.net/2019/03/12/5c8720ac317ab.jpg",
+    "4":"https://i.loli.net/2019/03/12/5c871fb6b5c07.jpg",
+    "5":"https://i.loli.net/2019/03/12/5c8720a9e6602.jpg",
 
-    "7":"https://i.loli.net/2019/03/12/5c871fb6b5c07.jpg",
-    "8":"https://i.loli.net/2019/03/12/5c871fb2debcf.jpg",
-    "9":"https://i.loli.net/2019/03/12/5c871fb63ec7a.jpg",
-    "10":"https://i.loli.net/2019/03/12/5c871fb4e604c.jpg",
-    "11":"https://i.loli.net/2019/03/12/5c871fb0d5cbe.jpg",
+    "7":"https://i.loli.net/2019/03/12/5c871fb63ec7a.jpg",
+    "8":"https://i.loli.net/2019/03/12/5c8725cb08ecd.jpg",
+    "9":"https://i.loli.net/2019/03/12/5c871fb0d5cbe.jpg",
+    "10":"https://i.loli.net/2019/03/12/5c8721fa790b6.jpg",
+    "11":"https://i.loli.net/2019/03/12/5c871fb4e604c.jpg",
 
-    "13":"https://i.loli.net/2019/03/12/5c8721fbe8b43.jpg",
-    "14":"https://i.loli.net/2019/03/12/5c8721f792347.jpg",
-    "15":"https://i.loli.net/2019/03/12/5c8721fa1574d.jpg",
-    "16":"https://i.loli.net/2019/03/12/5c8721fc1d4a3.jpg",
-    "17":"https://i.loli.net/2019/03/12/5c8721f814e20.jpg",
+    "13":"https://i.loli.net/2019/03/12/5c8721fbd2096.jpg",
+    "14":"https://i.loli.net/2019/03/12/5c8724b10f4ba.jpg",
+    "15":"https://i.loli.net/2019/03/12/5c8721fa02692.jpg",
+    "16":"https://i.loli.net/2019/03/12/5c8721f778ccf.jpg",
+    "17":"https://i.loli.net/2019/03/12/5c8722a0b66c3.jpg",
 
-    "19":"https://i.loli.net/2019/03/12/5c8721fa790b6.jpg",
-    "20":"https://i.loli.net/2019/03/12/5c8721fbd2096.jpg",
-    "21":"https://i.loli.net/2019/03/12/5c8721f778ccf.jpg",
-    "22":"https://i.loli.net/2019/03/12/5c8721fa02692.jpg",
-    "23":"https://i.loli.net/2019/03/12/5c8721fb95790.jpg",
+    "19":"https://i.loli.net/2019/03/12/5c8721fb95790.jpg",
+    "20":"https://i.loli.net/2019/03/12/5c8722a33bdc9.jpg",
+    "21":"https://i.loli.net/2019/03/12/5c872294c1df8.jpg",
+    "22":"https://i.loli.net/2019/03/12/5c8723561e34f.jpg",
+    "23":"https://i.loli.net/2019/03/12/5c8722a06415e.jpg",
 
-    "25":"https://i.loli.net/2019/03/12/5c87229918d79.jpg",
-    "26":"https://i.loli.net/2019/03/12/5c872294c1df8.jpg",
-    "27":"https://i.loli.net/2019/03/12/5c8722a06415e.jpg",
-    "28":"https://i.loli.net/2019/03/12/5c8722a0b66c3.jpg",
-    "29":"https://i.loli.net/2019/03/12/5c8722a632e0f.jpg",
+    "25":"https://i.loli.net/2019/03/12/5c8723949c263.jpg",
+    "26":"https://i.loli.net/2019/03/12/5c8724ad09da1.jpg",
+    "27":"https://i.loli.net/2019/03/12/5c8722a632e0f.jpg",
+    "28":"https://i.loli.net/2019/03/12/5c8723fbcf46a.jpg",
+    "29":"https://i.loli.net/2019/03/12/5c8722a1e7f4e.jpg",
 
-    "31":"https://i.loli.net/2019/03/12/5c8722a33bdc9.jpg",
-    "32":"https://i.loli.net/2019/03/12/5c8722a3b8fe8.jpg",
-    "33":"https://i.loli.net/2019/03/12/5c8722a1bdf60.jpg",
-    "34":"https://i.loli.net/2019/03/12/5c8722a1e7f4e.jpg",
-    "35":"https://i.loli.net/2019/03/12/5c8722a5ec8f3.jpg"    
+    "31":"https://i.loli.net/2019/03/12/5c872353eb9a8.jpg",
+    "32":"https://i.loli.net/2019/03/12/5c8722a5ec8f3.jpg",
+    "33":"https://i.loli.net/2019/03/12/5c8724b0d70fa.jpg",
+    "34":"https://i.loli.net/2019/03/12/5c87238f4607c.jpg",
+    "35":"https://i.loli.net/2019/03/12/5c8724b20f60e.jpg"    
 }
-
 
 class Question extends Component {
     state = {

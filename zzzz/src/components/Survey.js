@@ -60,24 +60,24 @@ const styles = theme => ({
 
 
 const quesMap = {   
-        "1": " 我觉得在完成任务的过程中很有趣",
-        "2": "参与完成科学研究相关的任务使我感到快乐",
-        "3": "我享受参与公众科学任务的过程",
-        "4": "我觉得探知新事物的能力增强了",
-        "5": "通过参与任务，我对科学任务有新的看法",
-        "6": "我觉得参与科研任务促使我进一步学习到新的知识",
-        "7": "我认为参与公众科学任务对我很重要",
-        "8": "我参与完成的任务对他人可能有重要的意义",
-        "9": "我认为参与完成任务的过程是有意义的",
-        "10": "我努力完成我参与的任务。",
-        "11": "我把注意力集中在完成我参与的任务上。",
-        "12": "我经常思考我参与的任务。",
-        "13": "我愿意继续参与公众科学项目",
-        "14": "我愿意继续利用业余时间完成科学任务",
-        "15": "我愿意继续浏览和关注科学任务",
-        "16": "我被告知我完成得比较好",
-        "17": "与标准相比，我完成得不太好",
-        "18": "我对我在任务中的表现满意"   
+        "1": "我认为该任务对植物学研究有贡献。",
+        "2": "我认为该任务符合研究需求。",
+        "3": "我认为该任务设计合理。",
+        "4": "参与公众科学任务对我很重要。",
+        "5": "我参与完成的任务对他人可能有重要的意义。",
+        "6": "我认为参与完成任务的过程是有意义的",
+        "7": "我觉得在完成任务的过程中很有趣。",
+        "8": "参与完成科学研究相关的任务使我感到快乐。",
+        "9": "我享受参与公众科学任务的过程。",
+        "10": "我愿意继续利用业余时间完成科学任务。",
+        "11": "学到新技能，并且该技能促使我进一步完成任务。",
+        "12": "通过努力学习到了有趣的新知识。",
+        "13": "享受学习到新知识的过程.",
+        "14": "我觉得学习到新技能是一项正确的事情。",
+        "15": "在完成任务时，我可以比他人做得更好。",
+        "16": "我的任务完成得最出色。",
+        "17": "我是完成得最好的人.",
+        "18": "在完成任务时，别人会有错误，我没有。"   
 }
 
 
@@ -255,6 +255,11 @@ class Survey extends Component {
                 </div>
                 </Grid>
 
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >一、基本信息</Typography>
+                </div>
+                </Grid>
                 <Paper className={classes.root} >
                     <Grid container spacing={16} >
                         <Grid item xs={12} className={classes.selectTitle1} >
@@ -405,6 +410,11 @@ class Survey extends Component {
                     </Grid>
                 </Paper>
 
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >二、关键心理状态测量</Typography>
+                </div>
+                </Grid>
                 <Paper className={classes.root}>
                     <Grid container spacing={16} className={classes.selectTitle1} >
                         <Grid item xs={7} >
@@ -427,6 +437,23 @@ class Survey extends Component {
                     {this.surveyQuestion(8)}
                     {this.surveyQuestion(9)}
                     {this.surveyQuestion(10)}
+                </Paper>
+
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >三、当参与研究任务时，我认为自己在以下情况中最成功：</Typography>
+                </div>
+                </Grid>
+                <Paper className={classes.root}>
+                    <Grid container spacing={16} className={classes.selectTitle1} >
+                        <Grid item xs={7} >
+                            <span > 题目 </span>
+                        </Grid>
+                        <Grid item xs={5} >
+                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
+                        </Grid>
+                    </Grid>
+                    <Divider></Divider>
                     {this.surveyQuestion(11)}
                     {this.surveyQuestion(12)}
                     {this.surveyQuestion(13)}

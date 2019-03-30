@@ -24,7 +24,7 @@ class Task extends Component {
     userAnswers: [[]],
     correctAnswers: [[false,false,false],[false,false,false],[false,false,false],[false,false,false],[false,false,false],],
     userAnswersT: [[]],
-    correctAnswersT: [[false,false,false],[false,false,false],[false,false,false],[false,false,false],[false,false,false],],
+    correctAnswersT: [[true,true,false],[true,true,true],[true,true,true],[true,true,false],[true,true,true],],
     crt: 0,
     correctQuestions: [],
     isTraining: true,
@@ -132,12 +132,8 @@ class Task extends Component {
     let A = this.state.userAnswers.slice(lengthA - 5, lengthA);
     let B = this.state.correctAnswers.slice(lengthB - 5, lengthB);
     let C = [];
-    // console.log("* " + A);
-    // console.log("** " + B);
 
     for(let i = 0; i< 5; i++) {
-      // console.log(i + ' A: '+ A[i] + '-' + typeof(A[i]) );
-      // console.log(i + ' B: '+ B[i] + '-' + typeof(B[i]) );
       let flag = true;
       for(let j = 0; j < 3; j++) {
         if(A[i][j] != B[i][j]) {
@@ -154,9 +150,6 @@ class Task extends Component {
       correctQuestions: C,
       crt: crt
     });
-    // console.log("*** " + C);
-    // console.log("*** " + crt);
-
   }
 
   calculateT = () => {
@@ -166,12 +159,8 @@ class Task extends Component {
     let A = this.state.userAnswersT.slice(lengthA - 5, lengthA);
     let B = this.state.correctAnswersT.slice(lengthB - 5, lengthB);
     let C = [];
-    // console.log("* " + A);
-    // console.log("** " + B);
 
     for(let i = 0; i< 5; i++) {
-      // console.log(i + ' A: '+ A[i] + '-' + typeof(A[i]) );
-      // console.log(i + ' B: '+ B[i] + '-' + typeof(B[i]) );
       let flag = true;
       for(let j = 0; j < 3; j++) {
         if(A[i][j] != B[i][j]) {

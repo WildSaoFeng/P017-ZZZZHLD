@@ -105,16 +105,7 @@ class Welcome extends Component {
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
             <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} component="p">
-            参与者您好，欢迎您参与本次有关植物学分类的公众科学任务。
-            </Typography>
-            <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} className={classes.greet} component="p">
-            此次任务预计占用您8-10分钟，在任务开始前，请您仔细阅读如下内容：
-            </Typography>
-            <Typography variant="subheading" align="left" color="inherit" style={{color:'#ffffff'}} component="p">
-            1.       每个参与者将会完成一组公众科学任务，您可以在任何时间通过点击页面下方的“结束任务”退出任务。所有题目结束后，任务会自动退出。
-            </Typography>
-            <Typography variant="subheading" align="left" color="inherit" style={{color:'#ffffff'}} component="p">
-            2.       点击“结束任务”或者任务自动结束后，系统会弹出一个针对此组任务的问卷，请您认真填写。
+            您好！我们是中央财经大学信息学院研究团队，现正开展一项公众科学志愿者参与体验研究。公众科学是指包含了大量非职业科研人员、科学爱好者和志愿者参与的开放科研活动。本次任务由植物学家采集的大量野生植物图片构成，请您标注植物的特征，以帮助植物学家完成科学研究。此次任务中，您将在线观察图片，回答有关图片特征的问题。任务所需时间约10-15分钟。您可以在任何时候选择中止本任务，并回答一份关于本次参与体验的问卷。
             </Typography>
             <br/><br/>
             <center>

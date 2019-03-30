@@ -60,24 +60,33 @@ const styles = theme => ({
 
 
 const quesMap = {   
-        "1": " 我觉得在完成任务的过程中很有趣",
-        "2": "参与完成科学研究相关的任务使我感到快乐",
-        "3": "我享受参与公众科学任务的过程",
-        "4": "我觉得探知新事物的能力增强了",
-        "5": "通过参与任务，我对科学任务有新的看法",
-        "6": "我觉得参与科研任务促使我进一步学习到新的知识",
-        "7": "我认为参与公众科学任务对我很重要",
-        "8": "我参与完成的任务对他人可能有重要的意义",
-        "9": "我认为参与完成任务的过程是有意义的",
-        "10": "我努力完成我参与的任务。",
-        "11": "我把注意力集中在完成我参与的任务上。",
-        "12": "我经常思考我参与的任务。",
-        "13": "我愿意继续参与公众科学项目",
-        "14": "我愿意继续利用业余时间完成科学任务",
-        "15": "我愿意继续浏览和关注科学任务",
-        "16": "我被告知我完成得比较好",
-        "17": "与标准相比，我完成得不太好",
-        "18": "我对我在任务中的表现满意"   
+        "1": " 我能学到的新技能，并且该技能让我想进一步完成任务",
+        "2": "通过努力我能学习到新知识",
+        "3": "我享受学习到新知识的过程",
+        "4": "我觉得学习到新技能是一项正确的事情",
+        "5": "在完成任务时，我可以比他人做得更好",
+        "6": "我在任务中表现得最出色",
+        "7": "我是完成得最好的人",
+        "8": "在完成任务时，别人会有错误，我没有",
+
+        "9": "我参与公众科学任务时感觉很有趣",
+        "10": "参与公众科学任务使我感到快乐",
+        "11": "我享受参与这个公众科学任务",
+        "12": "通过参与任务，我觉得探知新事物的能力增强了",
+        "13": "我觉得我探知新事物的能力增强了",
+        "14": "我觉得我对做的科学任务有了更全面的理解",
+        "15": "我觉得参与公众任务让我学习到新的知识",
+        "16": "我觉得参与公众科学任务对我很重要",
+        "17": "我觉得参与公众科学任务对我个人来说是有意义的",
+        "18": "我觉得参与公众科学任务是有意义的",
+        "19":"我很努力完成我参与的公众科学任务。" ,
+        "20":"我集中注意力在完成我参与的公众科学任务。" ,
+        "21":"我会投入很多精力完成我参与的公众科学任务" ,
+        "22":"我愿意继续参与公众科学项目" ,
+        "23":"我愿意继续利用业余时间完成科学任务" ,
+        "24":"我愿意继续浏览和关注科学任务" ,
+        "25":"在参与任务过程中我被告知完成得比较好",
+        "26":"在参与任务过程中，我获得以下类型的反馈",
 }
 
 
@@ -120,13 +129,74 @@ class Survey extends Component {
 
    
     surveyQuestion = (i) => {
+        let z = i;
+        if(z >= 9){
+            z = z - 8;
+        }else{
+        }
         const { classes } = this.props;
+        if(i === 26){
+            return(
+                <div className={classes.ti} >
+            <Grid container spacing={16} >
+                <Grid item xs={6} >
+                    <span className={classes.selectTitle} >
+                        {z + '. ' + quesMap[i]}
+                    </span>
+                </Grid>
+                <Grid item xs={6}>
+                    <span className={classes.select} >
+        <Radio
+            checked={this.state.selectedValue[i-1] == 1}
+            onChange={this.handleChange(i-1)}
+            value="1"
+            name="radio-button-demo"
+            label="A"
+            />A、关于任务完成的表现情况
+        </span>
+        
+        <span className={classes.select} >
+        <Radio
+            checked={this.state.selectedValue[i-1] == 2}
+            onChange={this.handleChange(i-1)}
+            value="2"
+            name="radio-button-demo"
+            label="B"
+            />
+            B、关于我前后表现情况变化的对比
+        </span>
+       <span className={classes.select} >
+       <Radio
+                checked={this.state.selectedValue[i-1] == 3}
+                onChange={this.handleChange(i-1)}
+                value={3}
+                name="radio-button-demo"
+                aria-label="C"
+                />
+                C、关于我与他人表现情况的对比
+       </span>
+       <span className={classes.select} >
+        <Radio
+                checked={this.state.selectedValue[i-1] == 4}
+                onChange={this.handleChange(i-1)}
+                value={4}
+                name="radio-button-demo"
+                aria-label="D"
+                />
+                D、没有收到反馈
+        </span>
+                </Grid>
+            </Grid>
+            <Divider></Divider>
+        </div>
+            );
+        }else{ 
         return(
         <div className={classes.ti} >
             <Grid container spacing={16} >
                 <Grid item xs={6} >
                     <span className={classes.selectTitle} >
-                        {i + '. ' + quesMap[i]}
+                        {z + '. ' + quesMap[i]}
                     </span>
                 </Grid>
                 <Grid item xs={6}>
@@ -210,6 +280,7 @@ class Survey extends Component {
 
         );
     }
+    }
 
     isCompleted = () => {
         let selectedValue = this.state.selectedValue
@@ -252,6 +323,12 @@ class Survey extends Component {
                 <Grid item xs={12} >
                 <div className={classes.head} >
                 <Typography variant="display1" className={classes.title} > 在参与完成任务之后，现邀请您根据参与中体验感受对下列问题进行回答，所有回答只用于统计分析，答案没有正确、错误之分。请您在百忙之中抽出一点时间填写这份调查表。衷心感谢您的支持和协助！</Typography>
+                </div>
+                </Grid>
+                
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >一、基本信息</Typography>
                 </div>
                 </Grid>
 
@@ -405,6 +482,12 @@ class Survey extends Component {
                     </Grid>
                 </Paper>
 
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >二、当……时，我认为我参与公众科学任务(活动)很成功。</Typography>
+                </div>
+                </Grid>
+
                 <Paper className={classes.root}>
                     <Grid container spacing={16} className={classes.selectTitle1} >
                         <Grid item xs={7} >
@@ -425,6 +508,24 @@ class Survey extends Component {
                     {this.surveyQuestion(6)}
                     {this.surveyQuestion(7)}
                     {this.surveyQuestion(8)}
+                </Paper>
+
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >三、通过参与公众科学任务：</Typography>
+                </div>
+                </Grid>
+                <Paper className={classes.root}>
+                    <Grid container spacing={16} className={classes.selectTitle1} >
+                        <Grid item xs={7} >
+                            <span > 题目 </span>
+                        </Grid>
+                        <Grid item xs={5} >
+                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
+                        </Grid>
+                    </Grid>
+                    <Divider></Divider>
+                        
                     {this.surveyQuestion(9)}
                     {this.surveyQuestion(10)}
                     {this.surveyQuestion(11)}
@@ -435,6 +536,14 @@ class Survey extends Component {
                     {this.surveyQuestion(16)}
                     {this.surveyQuestion(17)}
                     {this.surveyQuestion(18)}
+                    {this.surveyQuestion(19)}
+                    {this.surveyQuestion(20)}
+                    {this.surveyQuestion(21)}
+                    {this.surveyQuestion(22)}
+                    {this.surveyQuestion(23)}
+                    {this.surveyQuestion(24)}
+                    {this.surveyQuestion(25)}
+                    {this.surveyQuestion(26)}
                 </Paper>
                 {this.selectedButton(this.isCompleted())}
             </Grid>

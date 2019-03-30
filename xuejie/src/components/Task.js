@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import Question from './Question';
 import Response from './Response';
 import Survey from './Survey';
+import Response3 from './Response3';
 
 const styles = theme => ({
   backhome: {
@@ -29,7 +30,8 @@ class Task extends Component {
     isResponsible: true,
     isSimple: false,
     trainingCurrent: 1,
-    groupType: 1
+    groupType: 1,
+    change:1,
   };
 
   componentWillMount(){ // 产生1到6的随机数
@@ -170,28 +172,44 @@ class Task extends Component {
     console.log("*** " + crt);
 
   }
+
+  onClickChange = () => {
+    this.setState({
+      change:0
+    })
+  }
   
   getcurrent = () => {
 
       switch(this.state.current)
       {
-        case 3:
-          if(!this.state.isResponsible) {
-            this.setState({
-              current: this.state.current + 1
-            });
-            break ;
-          }
-          return(
-              <Response 
-              num={1} 
-              current={this.state.current} 
-              groupType={this.state.groupType}
-              crt={this.state.crt}
-              history={this.props.history}
-              correctQuestions={this.state.correctQuestions}
-              onButtonClickNextPure ={() => this.onButtonClickNextPure()}
-          ></Response>);
+        case 4:
+            if(!this.state.isResponsible) {
+              this.setState({
+                current: this.state.current + 1
+              });
+              break ;
+            }         
+            if(this.state.change == 1){
+              return(
+                <Response3
+                    onClickChange={() => this.onClickChange()}
+                  ></Response3>
+                );
+            } else {
+                return(
+                  <Question
+                  current={this.state.current} 
+                  group={this.state.group}
+                  isSimple={this.state.isSimple}
+                  isResponsible={this.state.isResponsible}
+                  history={this.props.history}
+                  onButtonClickNext={(userAnswer, correctAnswer) => this.onButtonClickNext(userAnswer, correctAnswer)} //子组件向父组件传参
+                  onButtonClickBack={() => this.onButtonClickBack()} 
+                  onButtonClickEnd={() => this.onButtonClickEnd()}
+                  ></Question>
+                );
+          }         
         case 6:
           if(!this.state.isResponsible) {
             this.setState({
@@ -304,7 +322,6 @@ class Task extends Component {
             console.log('* '+this.props.history);
             console.log('** '+this.state.userAnswers);
             console.log('*** '+this.state.groupType);
-            
             return(
               <Survey 
                 history={this.props.history}
@@ -332,7 +349,7 @@ class Task extends Component {
 
   render() {
     const { classes } = this.props;
-
+    console.log(this.state.current);
 
     return (
       <div className="Task">

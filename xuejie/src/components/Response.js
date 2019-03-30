@@ -133,19 +133,28 @@ class Response extends Component {
       correctQuestion = Number(num) + Number(correctQuestion);
       outputQuestions = outputQuestions + correctQuestion + '. ';
     }
+
+    let current = this.props.current;
+
+    if(current >= 6){
+      current = current - current / 6;
+    } else {
+      current = current - 1;
+    }
+    
     // console.log(this.props.current);
     console.log(this.props.groupType);
     switch(this.props.groupType){
       case 1:
         return(
-          <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-              你仅标注了15张图片，答错了5道题目
+          <Typography variant="titlnpme" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
+              刚刚的5道题中，您答对了{this.props.crt}道题目
           </Typography>
         );
       case 2:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-          你仅标注了15张图片，答对了10道题目
+              刚刚的5道题中，您答错了{5 - this.props.crt}道题目
           </Typography>
         );
       case 3:
