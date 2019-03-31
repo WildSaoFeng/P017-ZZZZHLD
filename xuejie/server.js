@@ -32,7 +32,7 @@ app.use(session({
 const Data = require('./routers/data');
 
 const config = {
-    database: 'mongodb://localhost:27017/zzzzhld'
+    database: 'mongodb://localhost:27017/zzxj'
 }
 
 function setupDB() {
