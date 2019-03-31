@@ -97,6 +97,45 @@ const imgMap = {
     "35":"https://i.loli.net/2019/03/12/5c8724b20f60e.jpg"    
 }
 
+const C_correctAnswers = {
+    "1":[true,true,true,false,true,false,false],
+    "2":[true,true,false,true,false,false,false],
+    "3":[true,true,true,false,false,false,true],
+    "4":[true,true,true,false,false,false,false],
+    "5":[true,true,true,false,false,false,false],
+
+    "7":[true,true,true,true,false,true,false],
+    "8":[true,true,true,false,false,false,false],
+    "9":[true,true,true,true,true,false,false],
+    "10":[true,true,true,true,false,true,false],
+    "11":[true,true,true,false,true,false,false],
+
+    "13":[true,true,false,true,false,false,true],
+    "14":[true,true,false,false,false,false,false],
+    "15":[true,true,true,false,true,false,true],
+    "16":[true,true,true,false,true,false,false],
+    "17":[true,true,false,false,false,true,false],
+
+    "19":[true,true,false,false,false,false,true],
+    "20":[true,false,false,true,false,false,true],
+    "21":[true,true,true,false,true,false,false],
+    "22":[true,true,true,false,true,false,false],
+    "23":[true,true,false,true,false,true,false],
+
+    "25":[true,true,true,true,true,true,false],
+    "26":[true,true,true,false,true,false,false],
+    "27":[true,true,true,false,false,false,true],
+    "28":[true,true,false,true,false,true,false],
+    "29":[true,true,false,true,true,true,false],
+
+    "31":[true,true,true,false,true,false,true],
+    "32":[true,true,true,false,true,false,true],
+    "33":[true,true,true,true,true,true,true],
+    "34":[true,true,false,true,true,true,true],
+    "35":[true,true,false,true,false,true,true],
+}
+
+
 class Question extends Component {
     state = {
         A: false,
@@ -138,7 +177,7 @@ class Question extends Component {
                                    this.handleNB();
                                 }
                                 else {
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
+                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
                                     this.handleNB();
                                 }
                                    
@@ -163,7 +202,7 @@ class Question extends Component {
                                 if(this.props.isSimple){
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers);
                                 }else{
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
+                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
                                     this.props.history.push('survey');
                                 }
                                 }} >
@@ -196,7 +235,7 @@ class Question extends Component {
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers);
                                     this.handleNB();
                                 }else{
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], correctAnswers)
+                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
                                     this.handleNB();
                                 }
                                 }} >
