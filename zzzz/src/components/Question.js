@@ -337,7 +337,7 @@ class Question extends Component {
                                         value="C"
                                         />
                                     }
-                                    label="花蕾"
+                                    label="花"
                                     className={classes.grid_check_small}
                                     /> 
                                 </Grid>
@@ -382,7 +382,7 @@ class Question extends Component {
                                         onChange={handleChange("C")}
                                         />
                                     }
-                                    label="花蕾"
+                                    label="花朵"
                                     
                                     /> 
                                 </Grid>
@@ -406,7 +406,7 @@ class Question extends Component {
                                         onChange={handleChange("E")}
                                         />
                                     }
-                                    label="种子"
+                                    label="花苞"
                                     />
                                 </Grid>
                                 <Grid item className = {classes.grid_check} xs={4}>
@@ -418,7 +418,7 @@ class Question extends Component {
                                         onChange={handleChange("F")}
                                         />
                                     }
-                                    label="球果"
+                                    label="果实"
                                     /> 
                                     
                                 </Grid>

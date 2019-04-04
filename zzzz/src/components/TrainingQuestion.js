@@ -43,7 +43,6 @@ const styles = theme => ({
     },
     hahtitle:{
         fontSize:25,
-        marginLeft:240,
     },
     grid_check_small:{
         // marginRight:  theme.spacing.unit * 20,
@@ -66,11 +65,11 @@ const imgMap = {
     "5":"https://i.loli.net/2019/03/12/5c8725cc6a1db.jpg",  
 }
 const tipMap = {
-    1:'提示1',
-    2:'提示2',
-    3:'提示3',
-    4:'提示4',
-    5:'提示5'
+    1:'图中植物为核桃楸（局部），属于落叶乔木，高可达20m。叶呈奇数羽状，核果呈卵形，果长2.5m-5cm。图中包含的元素有叶、茎、树皮/树枝、果实。',
+    2:'图中植物为稠李（局部），属于落叶乔木，高可达13m。树皮灰褐色或黑褐色，叶呈椭圆形或倒卵形。腋生总状花序，花朵呈白色。图中包含的元素有叶、茎、花（含花朵和花苞，花苞指含苞待放的花）、树皮/树枝。',
+    3:'图中植物为卫矛（局部），属于灌木，高约2-3m。叶对生，呈倒卵形至椭圆形。花朵呈黄绿色，蒴果呈棕紫色。图中包含的元素有叶、茎、花（大部分花朵开放，有几个花苞）、树皮/树枝、果实。',
+    4:'图中植物为油松（局部及全貌），属于常绿乔木，高可达30m。针叶两针一束，暗绿色，长10-15cm。雄球花圆柱形，长1.2-1.8cm，聚生于新枝下部呈穗状。球果卵形或卵圆形，黄褐色。图中包含的元素有叶、茎、树皮/树枝、球果、植物全貌。',
+    5:'图中植物为小红菊（全貌），属于菊科。叶片呈半圆形或宽卵形，花为白色。图中包含的元素有叶、茎、花（大部分花朵开放，有几个花苞）、植物全貌。'
 }
 
 
@@ -170,7 +169,7 @@ class TrainingQuestion extends Component {
              
             <Grid container spacing={8} className={classes.cardGroup} >
                 <Grid item xs={12} >
-                    <Typography variant="display1" className={classes.hahtitle} >此题目为训练题目，不计入最后分数</Typography>
+                    <Typography variant="display1" className={classes.hahtitle} >您现在做的题目为训练题目，不计入最终得分。训练题目每张图片下方有文字提示，有助于您更好的完成正式任务。</Typography>
                 </Grid>
                 <Grid item xs={4} >
                     <Card className={classes.card} >

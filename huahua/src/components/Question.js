@@ -59,80 +59,81 @@ const correctAnswers = [
 ]
 
 const hzMap = ['一','二','三','四','五','六','六','七','八','九','十','十一','十一','十二','十三','十四','十五','十六','十六','十七','十八','十九','二十','二十一','二十一','二十二','二十三','二十四','二十五','二十六','二十六','二十七','二十八','二十九','三十']
+
 const imgMap = {
-    "1":"https://i.loli.net/2019/03/12/5c8724ae4fe63.jpg",
-    "2":"https://i.loli.net/2019/03/12/5c871fb6cdeca.jpg",
-    "3":"https://i.loli.net/2019/03/12/5c8720ac317ab.jpg",
-    "4":"https://i.loli.net/2019/03/12/5c871fb6b5c07.jpg",
-    "5":"https://i.loli.net/2019/03/12/5c8720a9e6602.jpg",
+    "1": "https://i.loli.net/2019/04/03/5ca430df48a63.jpg",
+    "2": "https://i.loli.net/2019/04/03/5ca430e258e68.jpg",
+    "3": "https://i.loli.net/2019/04/03/5ca430dd54bf6.jpg",
+    "4": "https://i.loli.net/2019/04/03/5ca4ae02876f6.jpg",
+    "5": "https://i.loli.net/2019/04/03/5ca430dbe9ee5.jpg",
 
-    "7":"https://i.loli.net/2019/03/12/5c871fb63ec7a.jpg",
-    "8":"https://i.loli.net/2019/03/12/5c8725cb08ecd.jpg",
-    "9":"https://i.loli.net/2019/03/12/5c871fb0d5cbe.jpg",
-    "10":"https://i.loli.net/2019/03/12/5c8721fa790b6.jpg",
-    "11":"https://i.loli.net/2019/03/12/5c871fb4e604c.jpg",
+    "7": "https://i.loli.net/2019/04/03/5ca430e23a611.jpg",
+    "8": "https://i.loli.net/2019/04/03/5ca4ae0061f68.jpg",
+    "9": "https://i.loli.net/2019/04/03/5ca430e1473cf.jpg",
+    "10":"https://i.loli.net/2019/04/03/5ca430e24167f.jpg",
+    "11":"https://i.loli.net/2019/04/03/5ca430e204a91.jpg",
 
-    "13":"https://i.loli.net/2019/03/12/5c8721fbd2096.jpg",
-    "14":"https://i.loli.net/2019/03/12/5c8724b10f4ba.jpg",
-    "15":"https://i.loli.net/2019/03/12/5c8721fa02692.jpg",
-    "16":"https://i.loli.net/2019/03/12/5c8721f778ccf.jpg",
-    "17":"https://i.loli.net/2019/03/12/5c8722a0b66c3.jpg",
+    "13":"https://i.loli.net/2019/04/03/5ca432437f3f3.jpg",
+    "14":"https://i.loli.net/2019/04/03/5ca43242638e3.jpg",
+    "15":"https://i.loli.net/2019/04/03/5ca4324327213.jpg",
+    "16":"https://i.loli.net/2019/04/03/5ca432438618e.jpg",
+    "17":"https://i.loli.net/2019/04/03/5ca43242d9aba.jpg",
 
-    "19":"https://i.loli.net/2019/03/12/5c8721fb95790.jpg",
-    "20":"https://i.loli.net/2019/03/12/5c8722a33bdc9.jpg",
-    "21":"https://i.loli.net/2019/03/12/5c872294c1df8.jpg",
-    "22":"https://i.loli.net/2019/03/12/5c8723561e34f.jpg",
-    "23":"https://i.loli.net/2019/03/12/5c8722a06415e.jpg",
+    "19":"https://i.loli.net/2019/04/03/5ca432438618e.jpg",
+    "20":"https://i.loli.net/2019/04/03/5ca432437c7b5.jpg",
+    "21":"https://i.loli.net/2019/04/03/5ca4324172427.jpg",
+    "22":"https://i.loli.net/2019/04/03/5ca43242ac75d.jpg",
+    "23":"https://i.loli.net/2019/04/03/5ca43242c34f4.jpg",
 
-    "25":"https://i.loli.net/2019/03/12/5c8723949c263.jpg",
-    "26":"https://i.loli.net/2019/03/12/5c8724ad09da1.jpg",
-    "27":"https://i.loli.net/2019/03/12/5c8722a632e0f.jpg",
-    "28":"https://i.loli.net/2019/03/12/5c8723fbcf46a.jpg",
-    "29":"https://i.loli.net/2019/03/12/5c8722a1e7f4e.jpg",
+    "25":"https://i.loli.net/2019/04/03/5ca432c373ed0.jpg",
+    "26":"https://i.loli.net/2019/04/03/5ca432c6cf340.jpg",
+    "27":"https://i.loli.net/2019/04/03/5ca4ae003f747.jpg",
+    "28":"https://i.loli.net/2019/04/03/5ca432dcbe4e0.jpg",
+    "29":"https://i.loli.net/2019/04/03/5ca432dc8c439.jpg",
 
-    "31":"https://i.loli.net/2019/03/12/5c872353eb9a8.jpg",
-    "32":"https://i.loli.net/2019/03/12/5c8722a5ec8f3.jpg",
-    "33":"https://i.loli.net/2019/03/12/5c8724b0d70fa.jpg",
-    "34":"https://i.loli.net/2019/03/12/5c87238f4607c.jpg",
-    "35":"https://i.loli.net/2019/03/12/5c8724b20f60e.jpg"    
+    "31":"https://i.loli.net/2019/04/03/5ca4adfcd33f5.jpg",
+    "32":"https://i.loli.net/2019/04/03/5ca432ddab13e.jpg",
+    "33":"https://i.loli.net/2019/04/03/5ca432dd6f4ff.jpg",
+    "34":"https://i.loli.net/2019/04/03/5ca432dc6fa76.jpg",
+    "35":"https://i.loli.net/2019/04/03/5ca432ddacac7.jpg"    
 }
 
 const C_correctAnswers = {
     "1":[true,true,true,false,true,false,false],
-    "2":[true,true,false,true,false,false,false],
-    "3":[true,true,true,false,false,false,true],
-    "4":[true,true,true,false,false,false,false],
-    "5":[true,true,true,false,false,false,false],
+    "2":[true,true,false,true,false,true,false],
+    "3":[true,true,true,false,true,false,true],
+    "4":[true,true,true,false,true,false,false],
+    "5":[true,true,true,false,true,false,false],
 
-    "7":[true,true,true,true,false,true,false],
-    "8":[true,true,true,false,false,false,false],
+    "7":[true,true,true,true,true,true,false],
+    "8":[true,true,true,false,false,true,false],
     "9":[true,true,true,true,true,false,false],
     "10":[true,true,true,true,false,true,false],
     "11":[true,true,true,false,true,false,false],
 
     "13":[true,true,false,true,false,false,true],
-    "14":[true,true,false,false,false,false,false],
-    "15":[true,true,true,false,true,false,true],
+    "14":[true,true,false,false,false,true,false],
+    "15":[false,true,false,false,true,false,true],
     "16":[true,true,true,false,true,false,false],
     "17":[true,true,false,false,false,true,false],
 
     "19":[true,true,false,false,false,false,true],
-    "20":[true,false,false,true,false,false,true],
+    "20":[true,true,false,true,false,false,true],
     "21":[true,true,true,false,true,false,false],
-    "22":[true,true,true,false,true,false,false],
+    "22":[true,true,true,false,true,true,false],
     "23":[true,true,false,true,false,true,false],
 
-    "25":[true,true,true,true,true,true,false],
+    "25":[true,true,true,true,false,true,false],
     "26":[true,true,true,false,true,false,false],
     "27":[true,true,true,false,false,false,true],
     "28":[true,true,false,true,false,true,false],
     "29":[true,true,false,true,true,true,false],
 
-    "31":[true,true,true,false,true,false,true],
-    "32":[true,true,true,false,true,false,true],
+    "31":[true,true,true,false,false,true,false],
+    "32":[true,true,true,false,true,false,false],
     "33":[true,true,true,true,true,true,true],
-    "34":[true,true,false,true,true,true,true],
-    "35":[true,true,false,true,false,true,true],
+    "34":[true,true,false,true,false,true,false],
+    "35":[true,true,true,true,false,false,false],
 }
 
 
@@ -150,7 +151,6 @@ class Question extends Component {
     handleChange = name => event => {
         this.setState({ [name]: event.target.checked });
     };
-
 
     handleNB(){
         this.setState({
@@ -172,15 +172,8 @@ class Question extends Component {
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={this.props.classes.button1} onClick={() => {
-                                if(this.props.isSimple){
-                                   this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C],correctAnswers);
-                                   this.handleNB();
-                                }
-                                else {
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
                                     this.handleNB();
-                                }
-                                   
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -199,12 +192,8 @@ class Question extends Component {
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
-                                if(this.props.isSimple){
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers);
-                                }else{
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
                                     this.props.history.push('survey');
-                                }
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -231,13 +220,8 @@ class Question extends Component {
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
-                                if(this.props.isSimple){
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C], correctAnswers);
-                                    this.handleNB();
-                                }else{
                                     this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
                                     this.handleNB();
-                                }
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -348,7 +332,7 @@ class Question extends Component {
                                         onChange={handleChange("C")}
                                         />
                                     }
-                                    label="花蕾"
+                                    label="花朵"
                                     
                                     /> 
                                 </Grid>
@@ -372,7 +356,7 @@ class Question extends Component {
                                         onChange={handleChange("E")}
                                         />
                                     }
-                                    label="种子"
+                                    label="花苞"
                                     />
                                 </Grid>
                                 <Grid item className = {classes.grid_check} xs={4}>
@@ -384,7 +368,7 @@ class Question extends Component {
                                         onChange={handleChange("F")}
                                         />
                                     }
-                                    label="球果"
+                                    label="果实"
                                     /> 
                                     
                                 </Grid>

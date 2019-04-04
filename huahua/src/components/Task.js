@@ -117,7 +117,7 @@ class Task extends Component {
       // console.log(i + ' A: '+ A[i] + '-' + typeof(A[i]) );
       // console.log(i + ' B: '+ B[i] + '-' + typeof(B[i]) );
       let flag = true;
-      for(let j = 0; j < 3; j++) {
+      for(let j = 0; j < 7; j++) {
         if(A[i][j] != B[i][j]) {
           flag = false;
           break;

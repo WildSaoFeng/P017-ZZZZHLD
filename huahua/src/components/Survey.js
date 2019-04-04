@@ -342,24 +342,74 @@ class Survey extends Component {
             <Grid container spacing={40} >
                 <Grid item xs={12} >
                 <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} > 在参与完成任务之后，现邀请您根据参与中体验感受对下列问题进行回答，所有回答只用于统计分析，答案没有正确、错误之分。请您在百忙之中抽出一点时间填写这份调查表。衷心感谢您的支持和协助！</Typography>
+                <Typography variant="display1" className={classes.title} > 请根据您刚刚参与的公众科学任务，完成下面的调查问卷。此次调查采用非实名制，所得数据仅用于统计分析，研究结果将为公众科学项目设计提供指导建议，十分感谢您的支持与协助！</Typography>
                 </div>
                 </Grid>
 
+                
                 <Grid item xs={12} >
                 <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} >一、基本信息</Typography>
+                <Typography variant="display1" className={classes.title} >一、基于您本次参加的公众科学任务，下面哪项描述最符合您的体验：</Typography>
+                </div>
+                </Grid>
+                <Paper className={classes.root}>
+                    <Grid container spacing={16} className={classes.selectTitle1} >
+                        <Grid item xs={7} >
+                            <span > 题目 </span>
+                        </Grid>
+                        <Grid item xs={5} >
+                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
+                        </Grid>
+                    </Grid>
+                    <Divider></Divider>
+                        
+                        
+                    {this.surveyQuestion(1)}
+                    {this.surveyQuestion(2)}
+                    {this.surveyQuestion(3)}
+                    {this.surveyQuestion(4)}
+                    {this.surveyQuestion(5)}
+                    {this.surveyQuestion(6)}
+                    {this.surveyQuestion(7)}
+                    {this.surveyQuestion(8)}
+                    {this.surveyQuestion(9)}
+                    {this.surveyQuestion(10)}
+                    {this.surveyQuestion(11)}
+                    {this.surveyQuestion(12)}
+                    {this.surveyQuestion(13)}
+                    {this.surveyQuestion(14)}
+                </Paper>
+
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >二、基于你本次参与的公众科学任务，下面哪些描述最符合你的经历：</Typography>
+                </div>
+                </Grid>
+                <Paper className={classes.root}>
+                    <Grid container spacing={16} className={classes.selectTitle1} >
+                        <Grid item xs={7} >
+                            <span > 题目 </span>
+                        </Grid>
+                        <Grid item xs={5} >
+                            <span className={classes.manyi}></span>
+                        </Grid>
+                    </Grid>
+                    <Divider></Divider>
+                    {this.surveyQuestion(15)}
+                    {this.surveyQuestion(16)}
+                </Paper>
+
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >三、基本信息</Typography>
                 </div>
                 </Grid>
 
                 <Paper className={classes.root} >
                     <Grid container spacing={16} >
-                        <Grid item xs={12} className={classes.selectTitle1} >
-                            <span > 基本信息 </span>
-                        </Grid>
                         <Divider/>
                         <Grid item xs={6} >
-                        <span className={classes.ba} > 年龄  </span>
+                        <span className={classes.ba} > 性别  </span>
                             
                         </Grid>
                         <Grid item xs={6} >
@@ -502,57 +552,6 @@ class Survey extends Component {
                     </Grid>
                 </Paper>
                 
-                <Grid item xs={12} >
-                <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} >二、关键心理状态测量</Typography>
-                </div>
-                </Grid>
-                <Paper className={classes.root}>
-                    <Grid container spacing={16} className={classes.selectTitle1} >
-                        <Grid item xs={7} >
-                            <span > 题目 </span>
-                        </Grid>
-                        <Grid item xs={5} >
-                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
-                        </Grid>
-                    </Grid>
-                    <Divider></Divider>
-                        
-                        
-                    {this.surveyQuestion(1)}
-                    {this.surveyQuestion(2)}
-                    {this.surveyQuestion(3)}
-                    {this.surveyQuestion(4)}
-                    {this.surveyQuestion(5)}
-                    {this.surveyQuestion(6)}
-                    {this.surveyQuestion(7)}
-                    {this.surveyQuestion(8)}
-                    {this.surveyQuestion(9)}
-                    {this.surveyQuestion(10)}
-                    {this.surveyQuestion(11)}
-                    {this.surveyQuestion(12)}
-                    {this.surveyQuestion(13)}
-                    {this.surveyQuestion(14)}
-                </Paper>
-
-                <Grid item xs={12} >
-                <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} >三、操作检验</Typography>
-                </div>
-                </Grid>
-                <Paper className={classes.root}>
-                    <Grid container spacing={16} className={classes.selectTitle1} >
-                        <Grid item xs={7} >
-                            <span > 题目 </span>
-                        </Grid>
-                        <Grid item xs={5} >
-                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
-                        </Grid>
-                    </Grid>
-                    <Divider></Divider>
-                    {this.surveyQuestion(15)}
-                    {this.surveyQuestion(16)}
-                </Paper>
                 {this.selectedButton(this.isCompleted())}
             </Grid>
         );

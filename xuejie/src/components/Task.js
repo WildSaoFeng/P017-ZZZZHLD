@@ -153,7 +153,7 @@ class Task extends Component {
       // console.log(i + ' A: '+ A[i] + '-' + typeof(A[i]) );
       // console.log(i + ' B: '+ B[i] + '-' + typeof(B[i]) );
       let flag = true;
-      for(let j = 0; j < 3; j++) {
+      for(let j = 0; j < 7; j++) {
         if(A[i][j] != B[i][j]) {
           flag = false;
           break;
@@ -190,7 +190,7 @@ class Task extends Component {
               });
               break ;
             }         
-            if(this.state.change == 1){
+            if(this.state.change == 1 && ( this.state.groupType == 3 || this.state.groupType == 4) ){
               return(
                 <Response3
                     onClickChange={() => this.onClickChange()}

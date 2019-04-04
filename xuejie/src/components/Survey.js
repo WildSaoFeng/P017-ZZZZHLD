@@ -60,40 +60,45 @@ const styles = theme => ({
 
 
 const quesMap = {   
-        "1": " 我能学到的新技能，并且该技能让我想进一步完成任务",
-        "2": "通过努力我能学习到新知识",
-        "3": "我享受学习到新知识的过程",
-        "4": "我觉得学习到新技能是一项正确的事情",
-        "5": "在完成任务时，我可以比他人做得更好",
-        "6": "我在任务中表现得最出色",
-        "7": "我是完成得最好的人",
-        "8": "在完成任务时，别人会有错误，我没有",
+        "1": "我愿意选择可以学到很多东西的、具有挑战性的任务。",
+        "2": "我经常寻找可以提升技能和学习知识的机会。",
+        "3": "我享受具有挑战性、可以学到新知识的任务。",
+        "4": "当我正在完成一项困难的任务时，我会尽最大努力。",
+        "5": "我愿意通过完成我能胜任的任务，而不是尝试新的任务来展示我的能力。",
+        "6": "当我完成我知道不会出错的任务时，我最开心。",
+        "7": "我更喜欢参与能向他人证明自己能力的任务。",
+        "8": "其他人对我能把事情做得多好的看法对我很重要。",
 
-        "9": "我参与公众科学任务时感觉很有趣",
+        "9": "我参与公众科学任务时感觉很有趣。",
         "10": "参与公众科学任务使我感到快乐",
-        "11": "我享受参与这个公众科学任务",
-        "12": "通过参与任务，我觉得探知新事物的能力增强了",
-        "13": "我觉得我探知新事物的能力增强了",
-        "14": "我觉得我对做的科学任务有了更全面的理解",
-        "15": "我觉得参与公众任务让我学习到新的知识",
-        "16": "我觉得参与公众科学任务对我很重要",
-        "17": "我觉得参与公众科学任务对我个人来说是有意义的",
-        "18": "我觉得参与公众科学任务是有意义的",
-        "19":"我很努力完成我参与的公众科学任务。" ,
-        "20":"我集中注意力在完成我参与的公众科学任务。" ,
-        "21":"我会投入很多精力完成我参与的公众科学任务" ,
-        "22":"我愿意继续参与公众科学项目" ,
-        "23":"我愿意继续利用业余时间完成科学任务" ,
-        "24":"我愿意继续浏览和关注科学任务" ,
-        "25":"在参与任务过程中我被告知完成得比较好",
-        "26":"在参与任务过程中，我获得以下类型的反馈",
+        "11": "我享受参与这个公众科学任务。",
+        "12": "通过参与公众科学任务，我觉得我探知新事物的能力增强了。",
+        "13": "我觉得我对做的公众科学任务有了更全面的理解。",
+        "14": "我觉得参与公众科学任务让我学习到新的知识。",
+        "15": "我觉得参与公众科学任务对我很重要。",
+        "16": "我觉得参与公众科学任务对我个人来说是有意义的。",
+        "17": "我觉得参与公众科学任务是有意义的。",
+        "18": "我对自己完成公众科学任务的能力充满信心。",
+        "19":"我对于自己提供的数据很有自信。" ,
+        "20":"我有能力完成公众科学任务。" ,
+        "21":"该公众科学任务让我以一种新的方式学习植物相关的知识。" ,
+        "22":"该公众科学任务让我学会标注植物的特征。" ,
+        "23":"该公众科学任务让我提高了对植物相关知识的理解。" ,
+        "24":"我很努力完成我参与的公众科学任务。" ,
+        "25":"我集中注意力在完成我参与的公众科学任务。",
+        "26":"我会投入很多精力完成我参与的公众科学任务。",
+        "27":"我愿意继续参与公众科学项目。",
+        "28":"我愿意继续利用业余时间完成公众科学任务。",
+        "29":"我愿意继续浏览和关注公众科学任务。",
+        "30":"我被告知完成得比较好。",
+        "31":"下列哪个选项最符合你获得的反馈"
 }
 
 
 class Survey extends Component {
     state = {
         basicInfo:[0,0,0,0],
-        selectedValue: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
+        selectedValue: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     };
 
     handleChange = i => event => {
@@ -135,7 +140,7 @@ class Survey extends Component {
         }else{
         }
         const { classes } = this.props;
-        if(i === 26){
+        if(i === 31){
             return(
                 <div className={classes.ti} >
             <Grid container spacing={16} >
@@ -152,7 +157,7 @@ class Survey extends Component {
             value="1"
             name="radio-button-demo"
             label="A"
-            />A、关于任务完成的表现情况
+            />A、关于我完成的任务情况的反馈
         </span>
         
         <span className={classes.select} >
@@ -163,7 +168,7 @@ class Survey extends Component {
             name="radio-button-demo"
             label="B"
             />
-            B、关于我前后表现情况变化的对比
+            B、关于我自己前后表现变化的对比反馈
         </span>
        <span className={classes.select} >
        <Radio
@@ -173,7 +178,7 @@ class Survey extends Component {
                 name="radio-button-demo"
                 aria-label="C"
                 />
-                C、关于我与他人表现情况的对比
+                C、关于我与他人表现对比的反馈
        </span>
        <span className={classes.select} >
         <Radio
@@ -322,7 +327,7 @@ class Survey extends Component {
             <Grid container spacing={40} >
                 <Grid item xs={12} >
                 <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} > 在参与完成任务之后，现邀请您根据参与中体验感受对下列问题进行回答，所有回答只用于统计分析，答案没有正确、错误之分。请您在百忙之中抽出一点时间填写这份调查表。衷心感谢您的支持和协助！</Typography>
+                <Typography variant="display1" className={classes.title} > 请根据您刚刚参与的公众科学任务，完成下面的调查问卷。此次调查采用非实名制，所得数据仅用于统计分析，研究结果将为公众科学项目设计提供指导建议，十分感谢您的支持与协助！</Typography>
                 </div>
                 </Grid>
                 
@@ -339,7 +344,7 @@ class Survey extends Component {
                         </Grid>
                         <Divider/>
                         <Grid item xs={6} >
-                        <span className={classes.ba} > 年龄  </span>
+                        <span className={classes.ba} > 性别  </span>
                             
                         </Grid>
                         <Grid item xs={6} >
@@ -484,7 +489,7 @@ class Survey extends Component {
 
                 <Grid item xs={12} >
                 <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} >二、当……时，我认为我参与公众科学任务(活动)很成功。</Typography>
+                <Typography variant="display1" className={classes.title} >二、在日常的学习工作中：</Typography>
                 </div>
                 </Grid>
 
@@ -544,6 +549,11 @@ class Survey extends Component {
                     {this.surveyQuestion(24)}
                     {this.surveyQuestion(25)}
                     {this.surveyQuestion(26)}
+                    {this.surveyQuestion(27)}
+                    {this.surveyQuestion(28)}
+                    {this.surveyQuestion(29)}
+                    {this.surveyQuestion(30)}
+                    {this.surveyQuestion(31)}
                 </Paper>
                 {this.selectedButton(this.isCompleted())}
             </Grid>

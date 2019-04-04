@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const DataSchema = mongoose.Schema({
     groupType: Number,
     userAnswers: [[Boolean]],
-    selectedValue: [String]
+    selectedValue: [String],
+    basicInfo:[String]
 });
 
 const Data = module.exports = mongoose.model('Data', DataSchema);

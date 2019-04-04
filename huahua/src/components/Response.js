@@ -145,7 +145,7 @@ class Response extends Component {
       case 2:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-              刚刚您做的5道题中您总共答错了{7 - this.props.crt}道 <br/>
+              刚刚您做的5道题中您总共答错了{5 - this.props.crt}道 <br/>
           </Typography>
         );
       case 3:
