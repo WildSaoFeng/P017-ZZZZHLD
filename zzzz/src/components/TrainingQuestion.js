@@ -12,6 +12,12 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import CardMedia from '@material-ui/core/CardMedia';
 
+import img31 from './pics--selected/031.jpg';
+import img32 from './pics--selected/032.jpg';
+import img33 from './pics--selected/033.jpg';
+import img34 from './pics--selected/034.jpg';
+import img35 from './pics--selected/035.jpg';
+
 const styles = theme => ({
     gjy:{
         paddingLeft:theme.spacing.unit * 3,
@@ -42,7 +48,7 @@ const styles = theme => ({
         length:100,
     },
     hahtitle:{
-        fontSize:25,
+        fontSize:22,
     },
     grid_check_small:{
         // marginRight:  theme.spacing.unit * 20,
@@ -50,22 +56,23 @@ const styles = theme => ({
     }
 });
 
+// const correctAnswersT = [[true,true,false],[true,true,true],[true,true,true],[true,true,false],[true,true,true],]
 const correctAnswersT = [
     true,
     true,
     true,
 ]
 
-const hzMap = ['一','二','三','四','五','六','六','七','八','九','十','十一','十一','十二','十三','十四','十五','十六','十六','十七','十八','十九','二十','二十一','二十一','二十二','二十三','二十四','二十五','二十六','二十六','二十七','二十八','二十九','三十']
+const hzMap = ['1','2','3','4','5','6','6','7','8','9','10','11','11','12','13','14','15','16','16','17','18','19','20','21','21','22','23','24','25','26','26','27','28','29','30']
 const imgMap = {
-    "1":"https://i.loli.net/2019/03/12/5c8723f706a5e.jpg",
-    "2":"https://i.loli.net/2019/03/12/5c871fb2debcf.jpg",
-    "3":"https://i.loli.net/2019/03/12/5c872391a8527.jpg",
-    "4":"https://i.loli.net/2019/03/12/5c8725ccacfa2.jpg",
-    "5":"https://i.loli.net/2019/03/12/5c8725cc6a1db.jpg",  
+    "1":img31,
+    "2":img32,
+    "3":img33,
+    "4":img34,
+    "5":img35,  
 }
 const tipMap = {
-    1:'图中植物为核桃楸（局部），属于落叶乔木，高可达20m。叶呈奇数羽状，核果呈卵形，果长2.5m-5cm。图中包含的元素有叶、茎、树皮/树枝、果实。',
+    1:'图中植物为核桃楸（局部），属于落叶乔木，高可达20m。叶呈奇数羽状，核果呈卵形，果长2.5-5cm。图中包含的元素有叶、茎、树皮/树枝、果实。',
     2:'图中植物为稠李（局部），属于落叶乔木，高可达13m。树皮灰褐色或黑褐色，叶呈椭圆形或倒卵形。腋生总状花序，花朵呈白色。图中包含的元素有叶、茎、花（含花朵和花苞，花苞指含苞待放的花）、树皮/树枝。',
     3:'图中植物为卫矛（局部），属于灌木，高约2-3m。叶对生，呈倒卵形至椭圆形。花朵呈黄绿色，蒴果呈棕紫色。图中包含的元素有叶、茎、花（大部分花朵开放，有几个花苞）、树皮/树枝、果实。',
     4:'图中植物为油松（局部及全貌），属于常绿乔木，高可达30m。针叶两针一束，暗绿色，长10-15cm。雄球花圆柱形，长1.2-1.8cm，聚生于新枝下部呈穗状。球果卵形或卵圆形，黄褐色。图中包含的元素有叶、茎、树皮/树枝、球果、植物全貌。',
@@ -169,7 +176,8 @@ class TrainingQuestion extends Component {
              
             <Grid container spacing={8} className={classes.cardGroup} >
                 <Grid item xs={12} >
-                    <Typography variant="display1" className={classes.hahtitle} >您现在做的题目为训练题目，不计入最终得分。训练题目每张图片下方有文字提示，有助于您更好的完成正式任务。</Typography>
+                    <Typography variant="display1" className={classes.hahtitle} >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您现在做的题目为训练题目，不计入最终得分。</Typography>
+                    <Typography variant="display1" className={classes.hahtitle} >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;训练题目每张图片下方有文字提示，有助于您更好的完成正式任务。</Typography>
                 </Grid>
                 <Grid item xs={4} >
                     <Card className={classes.card} >
@@ -183,7 +191,7 @@ class TrainingQuestion extends Component {
                 <Grid item xs={4} >
                         <Card className={classes.card}>
                         <div className={classes.gjy} >
-                            <Typography variant="h6" className={classes.title} >问题{hzMap[this.props.trainingCurrent - 1]}：图片中是否含有以下元素？</Typography>
+                            <Typography variant="h6" className={classes.title} >{hzMap[this.props.trainingCurrent - 1]}. 图片中含有以下哪些元素？</Typography>
                             <Divider className={classes.divider} />
                             <FormControl component="fieldset" className={classes.formControl}>
                             <FormGroup>
@@ -221,7 +229,7 @@ class TrainingQuestion extends Component {
                                             value="C"
                                             />
                                         }
-                                        label="花蕾"
+                                        label="花"
                                         className={classes.grid_check_small}
                                         /> 
                                     </Grid>
@@ -232,8 +240,8 @@ class TrainingQuestion extends Component {
                         </div>
                     </Card>
                 </Grid>
-                <Grid item xs={12} >
-                    <Typography variant="display1" className={classes.hahtitle} >{tipMap[this.props.trainingCurrent]}</Typography>
+                <Grid item xs={6} >
+                    <Typography variant="display1" className={classes.hahtitle} >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{tipMap[this.props.trainingCurrent]}</Typography>
                 </Grid>
             </Grid>
         );

@@ -327,7 +327,7 @@ class Survey extends Component {
             <Grid container spacing={40} >
                 <Grid item xs={12} >
                 <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} > 请根据您刚刚参与的公众科学任务，完成下面的调查问卷。此次调查采用非实名制，所得数据仅用于统计分析，研究结果将为公众科学项目设计提供指导建议，十分感谢您的支持与协助！</Typography>
+                <Typography variant="display1" className={classes.title} > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请根据您刚刚参与的公众科学任务，完成下面的调查问卷。此次调查采用非实名制，所得数据仅用于统计分析，研究结果将为公众科学项目设计提供指导建议，十分感谢您的支持与协助！</Typography>
                 </div>
                 </Grid>
                 

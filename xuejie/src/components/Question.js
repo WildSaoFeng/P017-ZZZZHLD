@@ -12,6 +12,37 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import CardMedia from '@material-ui/core/CardMedia';
 
+import img1 from './pics--selected/01.jpg';
+import img2 from './pics--selected/02.jpg';
+import img3 from './pics--selected/03.jpg';
+import img4 from './pics--selected/04.jpg';
+import img5 from './pics--selected/05.jpg';
+import img6 from './pics--selected/06.jpg';
+import img7 from './pics--selected/07.jpg';
+import img8 from './pics--selected/08.jpg';
+import img9 from './pics--selected/09.jpg';
+import img10 from './pics--selected/010.jpg';
+import img11 from './pics--selected/011.jpg';
+import img12 from './pics--selected/012.jpg';
+import img13 from './pics--selected/013.jpg';
+import img14 from './pics--selected/014.jpg';
+import img15 from './pics--selected/015.jpg';
+import img16 from './pics--selected/016.jpg';
+import img17 from './pics--selected/017.jpg';
+import img18 from './pics--selected/018.jpg';
+import img19 from './pics--selected/019.jpg';
+import img20 from './pics--selected/020.jpg';
+import img21 from './pics--selected/021.jpg';
+import img22 from './pics--selected/022.jpg';
+import img23 from './pics--selected/023.jpg';
+import img24 from './pics--selected/024.jpg';
+import img25 from './pics--selected/025.jpg';
+import img26 from './pics--selected/026.jpg';
+import img27 from './pics--selected/027.jpg';
+import img28 from './pics--selected/028.jpg';
+import img29 from './pics--selected/029.jpg';
+import img30 from './pics--selected/030.jpg';
+
 const styles = theme => ({
     gjy:{
         paddingLeft:theme.spacing.unit * 3,
@@ -58,44 +89,44 @@ const correctAnswers = [
     true,
 ]
 
-const hzMap = ['一','二','三','四','五','六','六','七','八','九','十','十一','十一','十二','十三','十四','十五','十六','十六','十七','十八','十九','二十','二十一','二十一','二十二','二十三','二十四','二十五','二十六','二十六','二十七','二十八','二十九','三十']
+const hzMap = ['1','2','3','4','5','6','6','7','8','9','10','11','11','12','13','14','15','16','16','17','18','19','20','21','21','22','23','24','25','26','26','27','28','29','30']
 
 const imgMap = {
-    "1": "https://i.loli.net/2019/04/03/5ca430df48a63.jpg",
-    "2": "https://i.loli.net/2019/04/03/5ca430e258e68.jpg",
-    "3": "https://i.loli.net/2019/04/03/5ca430dd54bf6.jpg",
-    "4": "https://i.loli.net/2019/04/03/5ca4ae02876f6.jpg",
-    "5": "https://i.loli.net/2019/04/03/5ca430dbe9ee5.jpg",
+    "1": img1,
+    "2": img2,
+    "3": img3,
+    "4": img4,
+    "5": img5,
 
-    "7": "https://i.loli.net/2019/04/03/5ca430e23a611.jpg",
-    "8": "https://i.loli.net/2019/04/03/5ca4ae0061f68.jpg",
-    "9": "https://i.loli.net/2019/04/03/5ca430e1473cf.jpg",
-    "10":"https://i.loli.net/2019/04/03/5ca430e24167f.jpg",
-    "11":"https://i.loli.net/2019/04/03/5ca430e204a91.jpg",
+    "7": img6,
+    "8": img7,
+    "9": img8,
+    "10":img9,
+    "11":img10,
 
-    "13":"https://i.loli.net/2019/04/03/5ca432437f3f3.jpg",
-    "14":"https://i.loli.net/2019/04/03/5ca43242638e3.jpg",
-    "15":"https://i.loli.net/2019/04/03/5ca4324327213.jpg",
-    "16":"https://i.loli.net/2019/04/03/5ca432438618e.jpg",
-    "17":"https://i.loli.net/2019/04/03/5ca43242d9aba.jpg",
+    "13":img11,
+    "14":img12,
+    "15":img13,
+    "16":img14,
+    "17":img15,
 
-    "19":"https://i.loli.net/2019/04/03/5ca432438618e.jpg",
-    "20":"https://i.loli.net/2019/04/03/5ca432437c7b5.jpg",
-    "21":"https://i.loli.net/2019/04/03/5ca4324172427.jpg",
-    "22":"https://i.loli.net/2019/04/03/5ca43242ac75d.jpg",
-    "23":"https://i.loli.net/2019/04/03/5ca43242c34f4.jpg",
+    "19":img16,
+    "20":img17,
+    "21":img18,
+    "22":img19,
+    "23":img20,
 
-    "25":"https://i.loli.net/2019/04/03/5ca432c373ed0.jpg",
-    "26":"https://i.loli.net/2019/04/03/5ca432c6cf340.jpg",
-    "27":"https://i.loli.net/2019/04/03/5ca4ae003f747.jpg",
-    "28":"https://i.loli.net/2019/04/03/5ca432dcbe4e0.jpg",
-    "29":"https://i.loli.net/2019/04/03/5ca432dc8c439.jpg",
+    "25":img21,
+    "26":img22,
+    "27":img23,
+    "28":img24,
+    "29":img25,
 
-    "31":"https://i.loli.net/2019/04/03/5ca4adfcd33f5.jpg",
-    "32":"https://i.loli.net/2019/04/03/5ca432ddab13e.jpg",
-    "33":"https://i.loli.net/2019/04/03/5ca432dd6f4ff.jpg",
-    "34":"https://i.loli.net/2019/04/03/5ca432dc6fa76.jpg",
-    "35":"https://i.loli.net/2019/04/03/5ca432ddacac7.jpg"    
+    "31":img26,
+    "32":img27,
+    "33":img28,
+    "34":img29,
+    "35":img30    
 }
 
 const C_correctAnswers = {
@@ -413,7 +444,7 @@ class Question extends Component {
                 <Grid item xs={4} >
                         <Card className={classes.card}>
                         <div className={classes.gjy} >
-                            <Typography variant="h6" className={classes.title} >问题{hzMap[this.props.current - 1]}：图片中是否含有以下元素？</Typography>
+                        <Typography variant="h6" className={classes.title} >{hzMap[this.props.current - 1]}. 图片中含有以下哪些元素？</Typography>
                             <Divider className={classes.divider} />
                             {this.selectContent()}
                             {this.selectButton()}                          

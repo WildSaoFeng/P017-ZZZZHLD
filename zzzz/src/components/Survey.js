@@ -32,16 +32,16 @@ const styles = theme => ({
     },
     select:{
         marginRight:20,
-        marginTop:10,
+        marginTop:20,
     },
     selectTitle:{
-        fontSize:20,
+        fontSize:16,
         marginLeft:30,
-        marginTop:10,
+        marginTop:20,
         width:200,
     },
     selectTitle1:{
-        fontSize:22,
+        fontSize:20,
         marginLeft:30,
         paddingTop:15,
         paddingBottom:15,
@@ -54,37 +54,50 @@ const styles = theme => ({
     },
     ba:{
         marginLeft: 30,
-        marginTop:10,
+        marginTop:20,
     }
 });
 
-
+//这里放22+8个问题，基本信息和操作检验单独放？操作检验还不会，待会再说。
 const quesMap = {   
-        "1": "我认为该任务对植物学研究有贡献。",
-        "2": "我认为该任务符合研究需求。",
-        "3": "我认为该任务设计合理。",
-        "4": "参与公众科学任务对我很重要。",
-        "5": "我参与完成的任务对他人可能有重要的意义。",
-        "6": "我认为参与完成任务的过程是有意义的",
-        "7": "我觉得在完成任务的过程中很有趣。",
-        "8": "参与完成科学研究相关的任务使我感到快乐。",
-        "9": "我享受参与公众科学任务的过程。",
-        "10": "我愿意继续利用业余时间完成科学任务。",
-        "11": "学到新技能，并且该技能促使我进一步完成任务。",
-        "12": "通过努力学习到了有趣的新知识。",
-        "13": "享受学习到新知识的过程.",
-        "14": "我觉得学习到新技能是一项正确的事情。",
-        "15": "在完成任务时，我可以比他人做得更好。",
-        "16": "我的任务完成得最出色。",
-        "17": "我是完成得最好的人.",
-        "18": "在完成任务时，别人会有错误，我没有。"   
+        "1": "我认为该公众科学任务设计的很合理。",
+        "2": "我认为完成此次公众科学任务的行为很明智。",
+        "3": "我认为参与此次公众科学任务很有价值。",
+        "4": "我觉得参与公众科学任务对我很重要。",
+        "5": "我觉得参与公众科学任务对我个人来说是有意义的。",
+        "6": "我觉得参与公众科学任务是有意义的。",
+        "7": "我参与公众科学任务时感觉很有趣。",
+        "8": "参与公众科学任务使我感到快乐。",
+        "9": "我享受参与这个公众科学任务。",
+        "10": "在此次公众科学任务过程中，我对任务需要做什么的理解程度非常高。",
+        "11": "在此次公众科学任务过程中，我的信心水平非常高。",
+        "12": "在此次公众科学任务过程中，我的舒适程度非常高。",
+        "13": "在此次公众科学任务过程中，我完成指定任务的技能水平非常高。",
+        "14": "该公众科学任务让我以一种新的方式学习植物相关的知识。",
+        "15": "该公众科学任务让我提高了对植物相关知识的理解。",
+        "16": "该公众科学任务让我学会标注植物的特征。",
+        "17": "使用这个任务系统，提高了我在该公众科学任务中的表现水平。",
+        "18": "使用这个任务系统，增强了我参与该公众科学任务的效率。" ,
+        "19": "使用这个任务系统，将该公众科学任务变得更容易完成。" ,
+        "20": "我愿意继续参与公众科学任务。",
+        "21": "我愿意继续利用业余时间完成公众科学任务。",
+        "22": "我愿意继续浏览和关注公众科学任务。",
+        "23": "我愿意选择可以学到很多东西的、具有挑战性的任务。",
+        "24": "我经常寻找可以提升技能和学习知识的机会。",
+        "25": "我享受具有挑战性、可以学到新知识的任务。",
+        "26": "当我正在完成一项困难的任务时，我会尽最大努力。",
+        "27": "我愿意通过完成我能胜任的任务，而不是尝试新的任务来展示我的能力。",
+        "28": "当我完成我知道不会出错的任务时，我最开心。",
+        "29": "我更喜欢参与能向他人证明自己能力的任务。",
+        "30": "其他人对我能把事情做得多好的看法对我很重要。"
 }
 
 
 class Survey extends Component {
     state = {
+        selectedValue: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         basicInfo:[0,0,0,0],
-        selectedValue: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
+        manipuCheck:[0,0,0]
     };
 
     handleChange = i => event => {
@@ -103,17 +116,27 @@ class Survey extends Component {
         });
     }
 
+    handleChangeManipu = i => event => {
+        let manipuCheck = this.state.manipuCheck;
+        manipuCheck[i] = event.target.value;
+        this.setState({
+            manipuCheck: manipuCheck
+        });
+    }
+
     handleClick = () => {
         axios.post('data', {
             groupType: this.props.groupType,
             userAnswers: this.props.userAnswers,
             selectedValue: this.state.selectedValue,
-            basicInfo:this.state.basicInfo
+            basicInfo: this.state.basicInfo,
+            manipuCheck: this.state.manipuCheck
         })
         console.log(this.props.groupType);
         console.log(this.props.userAnswers);
         console.log(this.state.selectedValue);
         console.log(this.state.basicInfo);
+        console.log(this.state.manipuCheck);
 
         this.props.history.push('finish');
     }
@@ -251,24 +274,217 @@ class Survey extends Component {
             <Grid container spacing={40} >
                 <Grid item xs={12} >
                 <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} > 在参与完成任务之后，现邀请您根据参与中体验感受对下列问题进行回答，所有回答只用于统计分析，答案没有正确、错误之分。请您在百忙之中抽出一点时间填写这份调查表。衷心感谢您的支持和协助！</Typography>
+                <Typography variant="display1" className={classes.title} > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请根据您刚刚参与的公众科学任务，完成下面的调查问卷。此次调查采用非实名制，所得数据仅用于统计分析，研究结果将为公众科学项目设计提供指导建议，十分感谢您的支持与协助！</Typography>
                 </div>
                 </Grid>
 
+                <Divider/>
+
                 <Grid item xs={12} >
                 <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} >一、基本信息</Typography>
+                <Typography variant="display1" className={classes.title} >一、基于您本次参加的公众科学任务，下面哪项描述最符合您的体验：
+</Typography>
+                </div>
+                </Grid>
+                <Paper className={classes.root}>
+                    <Grid container spacing={16} className={classes.selectTitle1} >
+                        <Grid item xs={7} >
+                            {/* <span > 题目 </span> */}
+                        </Grid>
+                        <Grid item xs={5} >
+                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
+                        </Grid>
+                    </Grid>
+                    <Divider></Divider>
+                        
+                    {this.surveyQuestion(1)}
+                    {this.surveyQuestion(2)}
+                    {this.surveyQuestion(3)}
+                    {this.surveyQuestion(4)}
+                    {this.surveyQuestion(5)}
+                    {this.surveyQuestion(6)}
+                    {this.surveyQuestion(7)}
+                    {this.surveyQuestion(8)}
+                    {this.surveyQuestion(9)}
+                    {this.surveyQuestion(10)}
+                    {this.surveyQuestion(11)}
+                </Paper>
+
+                <Paper className={classes.root}>
+                    <Grid container spacing={16} className={classes.selectTitle1} >
+                        <Grid item xs={7} >
+                            {/* <span > 题目 </span> */}
+                        </Grid>
+                        <Grid item xs={5} >
+                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
+                        </Grid>
+                    </Grid>
+                    <Divider></Divider>
+                        
+                    {this.surveyQuestion(12)}
+                    {this.surveyQuestion(13)}
+                    {this.surveyQuestion(14)}
+                    {this.surveyQuestion(15)}
+                    {this.surveyQuestion(16)}
+                    {this.surveyQuestion(17)}
+                    {this.surveyQuestion(18)}
+                    {this.surveyQuestion(19)}
+                    {this.surveyQuestion(20)}
+                    {this.surveyQuestion(21)}
+                    {this.surveyQuestion(22)}
+                </Paper>
+
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >二、在日常的学习工作中：</Typography>
+                </div>
+                </Grid>
+                <Paper className={classes.root}>
+                    <Grid container spacing={16} className={classes.selectTitle1} >
+                        <Grid item xs={7} >
+                            {/* <span > 题目 </span> */}
+                        </Grid>
+                        <Grid item xs={5} >
+                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
+                        </Grid>
+                    </Grid>
+                    <Divider></Divider>
+                    {this.surveyQuestion(23)}
+                    {this.surveyQuestion(24)}
+                    {this.surveyQuestion(25)}
+                    {this.surveyQuestion(26)}
+                    {this.surveyQuestion(27)}
+                    {this.surveyQuestion(28)}
+                    {this.surveyQuestion(29)}
+                    {this.surveyQuestion(30)}
+                </Paper>
+
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >三、基于您本次参加的公众科学任务，下面哪项描述最符合您的经历：</Typography>
                 </div>
                 </Grid>
                 <Paper className={classes.root} >
                     <Grid container spacing={16} >
-                        <Grid item xs={12} className={classes.selectTitle1} >
+                        {/* <Grid item xs={12} className={classes.selectTitle1} >
                             <span > 基本信息 </span>
-                        </Grid>
+                        </Grid> */}
                         <Divider/>
                         <Grid item xs={6} >
-                        <span className={classes.ba} > 年龄  </span>
-                            
+                        <span className={classes.ba} > 我认为这个任务的难度水平为：</span>   
+                        </Grid>
+                        <Grid item xs={6} >
+                            <span className={classes.select}  >
+                                <Radio
+                                    checked={this.state.manipuCheck[0] == 1}
+                                    onChange={this.handleChangeManipu(0)}
+                                    value={1}
+                                    name="radio-button-demo"
+                                    />
+                                    A、复杂
+                            </span>
+                            <span className={classes.select} >
+                            <Radio
+                                    checked={this.state.manipuCheck[0] == 2}
+                                    onChange={this.handleChangeManipu(0)}
+                                    value={2}
+                                    name="radio-button-demo"
+                                    />
+                                    B、简单
+                            </span>
+                            <span className={classes.select} >
+                            <Radio
+                                    checked={this.state.manipuCheck[0] == 3}
+                                    onChange={this.handleChangeManipu(0)}
+                                    value={3}
+                                    name="radio-button-demo"
+                                    />
+                                    C、不确定
+                            </span>
+                        </Grid>
+
+                        <Grid item xs={6} >
+                        <span className={classes.ba} > 在参与任务的过程中：</span>   
+                        </Grid>
+                        <Grid item xs={6} >
+                            <span className={classes.select}  >
+                                <Radio
+                                    checked={this.state.manipuCheck[1] == 1}
+                                    onChange={this.handleChangeManipu(1)}
+                                    value={1}
+                                    name="radio-button-demo"
+                                    />
+                                    A、我收到了反馈
+                            </span>
+                            <span className={classes.select} >
+                            <Radio
+                                    checked={this.state.manipuCheck[1] == 2}
+                                    onChange={this.handleChangeManipu(1)}
+                                    value={2}
+                                    name="radio-button-demo"
+                                    />
+                                    B、没有收到反馈
+                            </span>
+                            <span className={classes.select} >
+                            <Radio
+                                    checked={this.state.manipuCheck[1] == 3}
+                                    onChange={this.handleChangeManipu(1)}
+                                    value={3}
+                                    name="radio-button-demo"
+                                    />
+                                    C、不确定
+                            </span>
+                        </Grid>
+                        
+                        <Grid item xs={6} >
+                        <span className={classes.ba} > 在参与任务之前：</span>
+                        </Grid>
+                        <Grid item xs={6} >
+                            <span className={classes.select}  >
+                                <Radio
+                                    checked={this.state.manipuCheck[2] == 1}
+                                    onChange={this.handleChangeManipu(2)}
+                                    value={1}
+                                    name="radio-button-demo"
+                                    />
+                                    A、我接受了训练
+                            </span>
+                            <span className={classes.select} >
+                            <Radio
+                                    checked={this.state.manipuCheck[2] == 2}
+                                    onChange={this.handleChangeManipu(2)}
+                                    value={2}
+                                    name="radio-button-demo"
+                                    />
+                                    B、没有接受训练
+                            </span>
+                            <span className={classes.select}  >
+                                <Radio
+                                    checked={this.state.manipuCheck[2] == 3}
+                                    onChange={this.handleChangeManipu(2)}
+                                    value={3}
+                                    name="radio-button-demo"
+                                    />
+                                    C、不确定
+                            </span>
+                        </Grid>
+                        
+                    </Grid>
+                </Paper>
+
+                <Grid item xs={12} >
+                <div className={classes.head} >
+                <Typography variant="display1" className={classes.title} >四、请如实填写您的基本信息: </Typography>
+                </div>
+                </Grid>
+                <Paper className={classes.root} >
+                    <Grid container spacing={16} >
+                        {/* <Grid item xs={12} className={classes.selectTitle1} >
+                            <span > 基本信息 </span>
+                        </Grid> */}
+                        <Divider/>
+                        <Grid item xs={6} >
+                        <span className={classes.ba} > 性别：  </span>   
                         </Grid>
                         <Grid item xs={6} >
                             <span className={classes.select}  >
@@ -291,7 +507,7 @@ class Survey extends Component {
                             </span>
                         </Grid>
                         <Grid item xs={6} >
-                            <span className={classes.ba} > 年龄  </span>
+                            <span className={classes.ba} > 年龄：  </span>
                             
                         </Grid>
                         <Grid item xs={6} >
@@ -333,7 +549,7 @@ class Survey extends Component {
                             </span>
                         </Grid>
                         <Grid item xs={6} >
-                        <span className={classes.ba} > 受教育程度  </span>
+                        <span className={classes.ba} > 受教育程度：  </span>
                             
                         </Grid>
                         <Grid item xs={6} >
@@ -375,7 +591,7 @@ class Survey extends Component {
                             </span>
                         </Grid>
                         <Grid item xs={6} >
-                        <span className={classes.ba} > 您对植物学的感兴趣程度  </span>
+                        <span className={classes.ba} > 您对植物学的感兴趣程度：  </span>
                         </Grid>
                         <Grid item xs={6} >
                             <span className={classes.select}  >
@@ -409,62 +625,11 @@ class Survey extends Component {
                         
                     </Grid>
                 </Paper>
-
-                <Grid item xs={12} >
-                <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} >二、关键心理状态测量</Typography>
-                </div>
-                </Grid>
-                <Paper className={classes.root}>
-                    <Grid container spacing={16} className={classes.selectTitle1} >
-                        <Grid item xs={7} >
-                            <span > 题目 </span>
-                        </Grid>
-                        <Grid item xs={5} >
-                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
-                        </Grid>
-                    </Grid>
-                    <Divider></Divider>
-                        
-                        
-                    {this.surveyQuestion(1)}
-                    {this.surveyQuestion(2)}
-                    {this.surveyQuestion(3)}
-                    {this.surveyQuestion(4)}
-                    {this.surveyQuestion(5)}
-                    {this.surveyQuestion(6)}
-                    {this.surveyQuestion(7)}
-                    {this.surveyQuestion(8)}
-                    {this.surveyQuestion(9)}
-                    {this.surveyQuestion(10)}
-                </Paper>
-
-                <Grid item xs={12} >
-                <div className={classes.head} >
-                <Typography variant="display1" className={classes.title} >三、当参与研究任务时，我认为自己在以下情况中最成功：</Typography>
-                </div>
-                </Grid>
-                <Paper className={classes.root}>
-                    <Grid container spacing={16} className={classes.selectTitle1} >
-                        <Grid item xs={7} >
-                            <span > 题目 </span>
-                        </Grid>
-                        <Grid item xs={5} >
-                            <span className={classes.manyi}> 非常不赞同 ---> 非常赞同 </span>
-                        </Grid>
-                    </Grid>
-                    <Divider></Divider>
-                    {this.surveyQuestion(11)}
-                    {this.surveyQuestion(12)}
-                    {this.surveyQuestion(13)}
-                    {this.surveyQuestion(14)}
-                    {this.surveyQuestion(15)}
-                    {this.surveyQuestion(16)}
-                    {this.surveyQuestion(17)}
-                    {this.surveyQuestion(18)}
-                </Paper>
+                
                 {this.selectedButton(this.isCompleted())}
             </Grid>
+
+            
         );
     }
 }

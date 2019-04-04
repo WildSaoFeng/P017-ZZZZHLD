@@ -104,8 +104,15 @@ class Welcome extends Component {
       <main className={classes.layout}>
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
-            <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} component="p">
-            您好!我们是中央财经大学信息学院研究团队，现正开展一项植物特征识别的公众科学研究项目。公众科学是指依靠大量非职业科研人员和志愿者参与，以完成科学调查与分析的开放科研活动。我们希望依靠您的帮助完成植物特征识别，为植物多样性调查及种群识别提供参考。在本项目中，您将在线观察植物图片，回答图片中植物特征的问题，您的回答将帮助我们对植物图片进行分类。本次任务预计需要大约为10-15分钟。您可以在任何时候选择中止本任务，并回答一份关于本次任务体验的问卷。
+            <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
+            &nbsp; &nbsp; &nbsp; &nbsp; 您好！我们是中央财经大学信息学院研究团队，现正开展一项公众科学志愿者参与体验研究。公众科学是指包含了大量非职业科研人员、科学爱好者和志愿者参与的开放科研活动。本次任务由植物学家采集的大量野生植物图片构成，请您标注植物的特征，以帮助植物学家完成科学研究。此次任务中，您将在线观察图片，回答有关图片特征的问题。任务所需时间约10-15分钟。您可以在任何时候选择中止本任务，并回答一份关于本次参与体验的问卷。
+            </Typography>
+            <br/>
+            <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
+            &nbsp; &nbsp; 注：1. “花”包括花朵和花苞，花朵指已经开放的花，花苞指未开放的花。
+            </Typography>
+            <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2. “植物全貌”代表能在图中看到植物的整体形态而不是局部。
             </Typography>
             <br/><br/>
             <center>

@@ -55,11 +55,11 @@ class Task extends Component {
     });
   }
 
-  // componentWillMount(){ 
-  //   let groupType = Math.floor(Math.random() * Math.floor(7)) + 1;
-  //   console.log("% " + groupType);
-  //   this.divideGroup(groupType);
-  // }
+  componentWillMount(){ 
+    let groupType = Math.floor(Math.random() * Math.floor(7)) + 1;
+    console.log("% " + groupType);
+    this.divideGroup(groupType);
+  }
 
 
   onButtonClickNext = (userAnswer, correctAnswer) => {
@@ -70,7 +70,11 @@ class Task extends Component {
       correctAnswers: preState.correctAnswers.concat([correctAnswer])
     }), () => {
       if( (this.state.current  ) % 6 == 0) {
-        this.calculate();
+        if(this.state.isSimple){
+          this.calculate();
+        }else{
+          this.calculateC();
+        }
       }
     });
   };
@@ -101,6 +105,7 @@ class Task extends Component {
       userAnswers: preState.userAnswers.slice(0, preState.userAnswers.length-1),
       correctAnswers: preState.correctAnswers.slice(0, preState.correctAnswers.length-1)
     }));
+  
   };
 
   onButtonClickBackT = () => {
@@ -136,6 +141,33 @@ class Task extends Component {
     for(let i = 0; i< 5; i++) {
       let flag = true;
       for(let j = 0; j < 3; j++) {
+        if(A[i][j] != B[i][j]) {
+          flag = false;
+          break;
+        }
+      }
+      if(flag) {
+        crt ++;
+        C.push(i);
+      }
+    }
+    this.setState({
+      correctQuestions: C,
+      crt: crt
+    });
+  }
+
+  calculateC = () => {
+    let crt = 0;
+    let lengthA = this.state.userAnswers.length;
+    let lengthB = this.state.correctAnswers.length;
+    let A = this.state.userAnswers.slice(lengthA - 5, lengthA);
+    let B = this.state.correctAnswers.slice(lengthB - 5, lengthB);
+    let C = [];
+
+    for(let i = 0; i< 5; i++) {
+      let flag = true;
+      for(let j = 0; j < 7; j++) {
         if(A[i][j] != B[i][j]) {
           flag = false;
           break;

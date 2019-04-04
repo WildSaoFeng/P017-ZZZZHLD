@@ -104,41 +104,6 @@ const styles = theme => ({
 
 class TrainingResponce extends Component {
 
-
-  selectContent = () => {
-    const { classes } = this.props;
-    let correctQuestions = this.props.correctQuestions;
-    let correctQuestion;
-    let outputQuestions = '';
-    for(correctQuestion in correctQuestions){
-      correctQuestion = 1 + Number(correctQuestion);
-      outputQuestions = outputQuestions + correctQuestion + '. ';
-    }
-    if(this.props.crt === 0){
-      return(
-        <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-            刚刚您做的5道题中您总共做对{this.props.crt}道 <br/>
-        </Typography>
-      );
-    } else if(this.props.crt === 1) {
-      return(
-        <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-            刚刚您做的5道题中您只做对了第{outputQuestions}道 <br/>
-        </Typography>
-      );
-    }else{
-      return(
-        <div>
-          <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-              刚刚您做的5道题中您总共做对{this.props.crt}道 <br/>
-          </Typography>
-          <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-            分别是第{outputQuestions}道
-          </Typography>
-        </div>
-      );
-    }
-  }
   
   render() {
     const { classes } = this.props;
@@ -156,7 +121,9 @@ class TrainingResponce extends Component {
       <main className={classes.layout}>
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
-            {this.selectContent()}
+            <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
+              恭喜您完成训练，请继续作答正式题目。 <br/>
+            </Typography>
             <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
             </Typography>
             <center>
