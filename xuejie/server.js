@@ -36,7 +36,7 @@ const config = {
 }
 
 function setupDB() {
-    mongoose.connect(config.database);
+    mongoose.connect(config.database,{useNewUrlParser: true });
 
     mongoose.connection.on('connected', () => {
         console.log('Trader Connected to MongoDB successfully');
