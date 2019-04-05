@@ -22,7 +22,13 @@ const styles = theme => ({
     color:'#ffffff',
   },
   layout: { 
-    backgroundImage: `url('https://i.loli.net/2019/03/05/5c7dfae9d1688.jpg')`,
+    backgroundImage: `url('ttps://i.loli.net/2019/03/05/5c7dfae9d1688.jpg')`,
+    backgroundAttachment: 'absolute',
+    backgroundSize: '100%',
+    paddingBottom: theme.spacing.unit * 70,
+  },
+  layout1: { 
+    backgroundImage: `url('https://i.loli.net/2019/04/05/5ca6e088eb60e.jpg')`,
     backgroundAttachment: 'absolute',
     backgroundSize: '100%',
     paddingBottom: theme.spacing.unit * 70,
@@ -91,10 +97,13 @@ class Welcome extends Component {
     if(mobile){
       return (     
         <React.Fragment>
-        <main className={classes.layout}>
+        <main className={classes.layout1} >
           <div className={classes.heroContent}>
             <div className={classes.mainContent}>
-              <Typography variant="title" color="inherit" style={{color:'#ffffff',marginLeft:60}} component="p">
+            <Typography variant="title" color="inherit" align="center" style={{color:'#000000',}} component="p">
+                欢迎您参加此次公众科学任务
+              </Typography>
+              <Typography variant="title" color="inherit" align="center" style={{color:'#000000',}} component="p">
                 请在电脑浏览器打开此链接
               </Typography>
               <br/>
