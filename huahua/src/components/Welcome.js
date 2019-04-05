@@ -22,7 +22,7 @@ const styles = theme => ({
     color:'#ffffff',
   },
   layout: { 
-    backgroundImage: `url('ttps://i.loli.net/2019/03/05/5c7dfae9d1688.jpg')`,
+    backgroundImage: `url('https://i.loli.net/2019/03/05/5c7dfae9d1688.jpg')`,
     backgroundAttachment: 'absolute',
     backgroundSize: '100%',
     paddingBottom: theme.spacing.unit * 70,
