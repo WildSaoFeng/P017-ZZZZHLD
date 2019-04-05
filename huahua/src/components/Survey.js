@@ -160,16 +160,6 @@ class Survey extends Component {
                         />
                         C. 不确定
                </span>
-               <span className={classes.select} >
-               <Radio
-                        checked={this.state.selectedValue[i-1] == 4}
-                        onChange={this.handleChange(i-1)}
-                        value={4}
-                        name="radio-button-demo"
-                        aria-label="C"
-                        />
-                        D. 没有得到反馈
-               </span>
                         </Grid>
                     </Grid>
                     <Divider></Divider>
@@ -214,16 +204,6 @@ class Survey extends Component {
                         aria-label="C"
                         />
                         C. 不确定
-               </span>
-               <span className={classes.select} >
-               <Radio
-                        checked={this.state.selectedValue[i-1] == 4}
-                        onChange={this.handleChange(i-1)}
-                        value={4}
-                        name="radio-button-demo"
-                        aria-label="C"
-                        />
-                        D. 没有得到反馈
                </span>
                         </Grid>
                     </Grid>
