@@ -82,49 +82,71 @@ const styles = theme => ({
 });
 
 class Welcome extends Component {
+
   
   render() {
     const { classes } = this.props;
-
-    return (
-      <React.Fragment>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" color="inherit" className={classes.backhome} onClick={() => {
-              this.props.history.push('home')
-          }} noWrap>
-          首页
-          </Typography>
-          <Typography variant="h6" color="inherit" noWrap>
-          Botanical Classification 植物学分类任务
-          </Typography>
-        </Toolbar>
-      </AppBar>
-
-      <main className={classes.layout}>
-        <div className={classes.heroContent}>
-          <div className={classes.mainContent}>
-            <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
-            &nbsp; &nbsp; &nbsp; &nbsp; 您好！我们是中央财经大学信息学院研究团队，现正开展一项公众科学志愿者参与体验研究。公众科学是指包含了大量非职业科研人员、科学爱好者和志愿者参与的开放科研活动。本次任务由植物学家采集的大量野生植物图片构成，请您标注植物的特征，以帮助植物学家完成科学研究。此次任务中，您将在线观察图片，回答有关图片特征的问题。任务所需时间约10-15分钟。您可以在任何时候选择中止本任务，并回答一份关于本次参与体验的问卷。
-            </Typography>
-            <br/>
-            <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
-            &nbsp; &nbsp; 注：1. “花”包括花朵和花苞，花朵指已经开放的花，花苞指未开放的花。
-            </Typography>
-            <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2. “植物全貌”代表能在图中看到植物的整体形态而不是局部。
-            </Typography>
-            <br/><br/>
-            <center>
-              <Button variant="contained" size="large" color="primary" className={classes.button} onClick={() => { this.props.history.push('task')} }>
-              开始任务
-              </Button>
-            </center>
+    
+    var u = navigator.userAgent;
+    let mobile =  !!u.match(/AppleWebKit.*Mobile.*/); //是否为移动终端  
+    if(mobile){
+      return (     
+        <React.Fragment>
+        <main className={classes.layout}>
+          <div className={classes.heroContent}>
+            <div className={classes.mainContent}>
+              <Typography variant="title" color="inherit" style={{color:'#ffffff',marginLeft:60}} component="p">
+                请在电脑浏览器打开此链接
+              </Typography>
+              <br/>
+            </div>
           </div>
-        </div>
-      </main>
-      </React.Fragment>
-    );
+        </main>
+        </React.Fragment>
+      );
+    }else{
+      return (     
+      
+        <React.Fragment>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" color="inherit" className={classes.backhome} onClick={() => {
+                this.props.history.push('home')
+            }} noWrap>
+            首页
+            </Typography>
+            <Typography variant="h6" color="inherit" noWrap>
+            Botanical Classification 植物学分类任务
+            </Typography>
+          </Toolbar>
+        </AppBar>
+  
+        <main className={classes.layout}>
+          <div className={classes.heroContent}>
+            <div className={classes.mainContent}>
+              <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
+              &nbsp; &nbsp; &nbsp; &nbsp; 您好！我们是中央财经大学信息学院研究团队，现正开展一项公众科学志愿者参与体验研究。公众科学是指包含了大量非职业科研人员、科学爱好者和志愿者参与的开放科研活动。本次任务由植物学家采集的大量野生植物图片构成，请您标注植物的特征，以帮助植物学家完成科学研究。此次任务中，您将在线观察图片，回答有关图片特征的问题。任务所需时间约10-15分钟。您可以在任何时候选择中止本任务，并回答一份关于本次参与体验的问卷。
+              </Typography>
+              <br/>
+              <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
+              &nbsp; &nbsp; 注：1. “花”包括花朵和花苞，花朵指已经开放的花，花苞指未开放的花。
+              </Typography>
+              <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2. “植物全貌”代表能在图中看到植物的整体形态而不是局部。
+              </Typography>
+              <br/><br/>
+              <center>
+                <Button variant="contained" size="large" color="primary" className={classes.button} onClick={() => { this.props.history.push('task')} }>
+                开始任务
+                </Button>
+              </center>
+            </div>
+          </div>
+        </main>
+        </React.Fragment>
+      );
+    }
+   
   }
 }
 

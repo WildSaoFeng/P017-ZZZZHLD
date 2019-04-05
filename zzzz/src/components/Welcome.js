@@ -85,6 +85,24 @@ class Welcome extends Component {
   
   render() {
     const { classes } = this.props;
+    var u = navigator.userAgent;
+    let mobile =  !!u.match(/AppleWebKit.*Mobile.*/); //是否为移动终端  
+    if(mobile){
+      return (     
+        <React.Fragment>
+        <main className={classes.layout}>
+          <div className={classes.heroContent}>
+            <div className={classes.mainContent}>
+              <Typography variant="title" color="inherit" style={{color:'#ffffff',marginLeft:60}} component="p">
+                请在电脑浏览器打开此链接
+              </Typography>
+              <br/>
+            </div>
+          </div>
+        </main>
+        </React.Fragment>
+      );
+    }else{
 
     return (
       <React.Fragment>
@@ -126,6 +144,7 @@ class Welcome extends Component {
       </React.Fragment>
     );
   }
+}
 }
 
 Welcome.propTypes = {
