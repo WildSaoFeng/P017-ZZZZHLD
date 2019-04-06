@@ -134,14 +134,17 @@ class Welcome extends Component {
           <div className={classes.heroContent}>
             <div className={classes.mainContent}>
               <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
-              &nbsp; &nbsp; &nbsp; &nbsp; 您好！我们是中央财经大学信息学院研究团队，现正开展一项公众科学志愿者参与体验研究。公众科学是指包含了大量非职业科研人员、科学爱好者和志愿者参与的开放科研活动。本次任务由植物学家采集的大量野生植物图片构成，请您标注植物的特征，以帮助植物学家完成科学研究。此次任务中，您将在线观察图片，回答有关图片特征的问题。任务所需时间约10-15分钟。您可以在任何时候选择中止本任务，并回答一份关于本次参与体验的问卷。
+              &nbsp; &nbsp;您好！我们是中央财经大学信息学院研究团队，现正开展一项公众科学志愿者参与体验研究。
               </Typography>
               <br/>
               <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
-              &nbsp; &nbsp; 注：1. “花”包括花朵和花苞，花朵指已经开放的花，花苞指未开放的花。
+              【任务介绍】在此处任务中，您将首先在线观察30张植物图片并要求进行标注，随后会回答一个35题的问卷，整体耗时约10-15分钟。
               </Typography>
               <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2. “植物全貌”代表能在图中看到植物的整体形态而不是局部。
+              【特别要求】若您在观察前30张图片时感觉到不耐烦，可随时点页面上的“终止任务”，此时会直接进入问卷环节。注意，不同的用户可能会在不同的时间点上终止观察任务，这是我们的研究内容之一，请务必按您的真实感觉来进行。
+              </Typography>
+              <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
+              注：公众科学是指依靠大量志愿者参与，以完成科学分析的开放科研活动。
               </Typography>
               <br/><br/>
               <center>
