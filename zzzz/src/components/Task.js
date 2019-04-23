@@ -56,7 +56,7 @@ class Task extends Component {
   }
 
   componentWillMount(){ 
-    let groupType = Math.floor(Math.random() * Math.floor(7)) + 1;
+    let groupType = Math.floor(Math.random() * Math.floor(8)) + 1;
     console.log("% " + groupType);
     this.divideGroup(groupType);
   }
