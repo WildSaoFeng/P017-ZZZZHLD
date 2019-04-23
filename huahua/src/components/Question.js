@@ -213,12 +213,7 @@ class Question extends Component {
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Button variant="contained" color="primary" className={this.props.classes.button2} onClick={() => {this.props.onButtonClickEnd()} } >
-                            结束任务
-                            </Button>
-                        </Grid>
+                       </Grid>
                     </Grid>
                 </div>
             );
@@ -250,7 +245,7 @@ class Question extends Component {
                     </Grid>
                 </div>
             );
-        } else {
+        } else if(this.props.current > 12) {
             return(
                 <div className={classes.buttonGroup} >
                     <Grid container spacing={24} >
@@ -273,6 +268,29 @@ class Question extends Component {
                         <Grid item xs={4}>
                             <Button variant="contained" color="primary" className={classes.button2} onClick={() => {this.props.onButtonClickEnd()}} >
                             结束任务
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </div>
+            );
+        }else{
+            return(
+                <div className={classes.buttonGroup} >
+                    <Grid container spacing={24} >
+                        <Grid item xs={12}>
+                            <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
+                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
+                                    this.handleNB();
+                                }} >
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </Button>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Button variant="contained" color="primary" className={classes.button2} onClick={() => {
+                                    this.props.onButtonClickBack()
+                                    this.handleNB();
+                                }} >
+                                返回上一题
                             </Button>
                         </Grid>
                     </Grid>

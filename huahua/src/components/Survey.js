@@ -62,27 +62,26 @@ const styles = theme => ({
 const quesMap = {   
         "1": " 我有信心完成科研任务。",
         "2": "我很喜欢参与公众科学的任务。",
-        "3": "我感觉我可以像本次任务一样成功地完成其他公众科学任务。",
+        "3": "我认为我可以成功地完成其他公众科学任务。",
         "4": "参与本次任务让我感到愉悦。",
         "5": "参与本次任务给我带来乐趣。",
-        "6": "参与本次任务令我感到无聊。",
-        "7": "我享受参与本次任务。",
-        "8": "在完成任务时我能排除其他干扰。",
-        "9": "在完成任务时我很专注。",
-        "10": "在完成任务时我很投入。",
-        "11": "在完成任务时我的注意力不容易转移。",
-        "12": "我计划在未来参与类似公众科学任务。",
-        "13": "我打算在未来继续参与类似公众科学任务。",
-        "14": "我希望将来能继续参与类似公众科学任务。",
-        "15": "请选择最符合你在任务中所得到的反馈的类型：",
-        "16": "请选择符合你在任务中所遇到实际情况的选项：",
+        "6": "我享受参与本次任务。",
+        "7": "在完成任务时我能排除其他干扰。",
+        "8": "在完成任务时我很专注。",
+        "9": "在完成任务时我很投入。",
+        "10": "在完成任务时我的注意力不容易转移。",
+        "11": "我计划在未来参与类似公众科学任务。",
+        "12": "我打算在未来继续参与类似公众科学任务。",
+        "13": "我希望将来能继续参与类似公众科学任务。",
+        "14": "你在参与公众科学任务时，下列哪项最符合你获得的反馈信息：",
+        "15": "你在参与公众科学任务时，下列哪项最符合你获得的反馈信息：",
 }
 
 
 class Survey extends Component {
     state = {
         basicInfo:[0,0,0,0],
-        selectedValue: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
+        selectedValue: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
     };
 
     handleChange = i => event => {
@@ -120,7 +119,7 @@ class Survey extends Component {
     surveyQuestion = (i) => {
         const { classes } = this.props;
 
-        if (i === 15) {
+        if (i === 14) {
             return(
                 <div className={classes.ti} >
                 <Grid container spacing={16} >
@@ -137,7 +136,7 @@ class Survey extends Component {
                     value="1"
                     name="radio-button-demo"
                     label="A"
-                    />A. 每组题目回答正确（错误）数量的反馈。
+                    />A. 答题情况是否达到合格水平的信息。
                 </span>
                 
                 <span className={classes.select} >
@@ -148,7 +147,7 @@ class Survey extends Component {
                     name="radio-button-demo"
                     label="B"
                     />
-                    B. 是否达到合格的反馈。
+                    B. 答题表现是否令人满意的信息。
                 </span>
                <span className={classes.select} >
                <Radio
@@ -165,7 +164,7 @@ class Survey extends Component {
                     <Divider></Divider>
                 </div>
             );
-        } else if (i === 16) {
+        } else if (i === 15) {
             return(
                 <div className={classes.ti} >
                 <Grid container spacing={16} >
@@ -377,7 +376,6 @@ class Survey extends Component {
                     {this.surveyQuestion(11)}
                     {this.surveyQuestion(12)}
                     {this.surveyQuestion(13)}
-                    {this.surveyQuestion(14)}
                 </Paper>
 
                 <Grid item xs={12} >
@@ -395,8 +393,8 @@ class Survey extends Component {
                         </Grid>
                     </Grid>
                     <Divider></Divider>
+                    {this.surveyQuestion(14)}
                     {this.surveyQuestion(15)}
-                    {this.surveyQuestion(16)}
                 </Paper>
 
                 <Grid item xs={12} >

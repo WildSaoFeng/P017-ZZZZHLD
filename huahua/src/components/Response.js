@@ -139,25 +139,25 @@ class Response extends Component {
       case 1:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-              刚刚您做的5道题中您总共答对{this.props.crt}道 <br/>
+          答对3题为合格水平，你在本组作答达到合格水平。 <br/>
           </Typography>
         );
       case 2:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-              刚刚您做的5道题中您总共答错了{5 - this.props.crt}道 <br/>
+          答错2题为不合格，你在本组作答不合格。 <br/>
           </Typography>
         );
       case 3:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-              您达到了合格的水平，继续加油呀！
+          你在本组答题表现很好，正确率较高，令人满意，请继续保持！
           </Typography>
         );
       case 4:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-            很遗憾，您没有在本组答题中达到合格水平。
+          你在本组答题表现较差，错误率较高，令人遗憾，有待提高！
           </Typography>
         );
       default:
