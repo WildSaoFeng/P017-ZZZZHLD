@@ -85,6 +85,10 @@ const styles = theme => ({
         marginTop:18,
         width:400,
         height:300,
+    },
+    least:{
+        fontSize:12,
+        color:"red"
     }
 });
 
@@ -468,7 +472,7 @@ class Question extends Component {
                 <Grid item xs={4} >
                         <Card className={classes.card}>
                         <div className={classes.gjy} >
-                            <Typography variant="h6" className={classes.title} >{hzMap[this.props.current - 1]}. 图片中含有以下哪些元素？</Typography>
+                            <Typography variant="h6" className={classes.title} >{hzMap[this.props.current - 1]}. 图片中含有以下哪些元素？ <span className={classes.least} >(至少选择一项)</span> </Typography>
                             <Divider className={classes.divider} />
                             {this.selectContent()}
                             {this.selectButton()}                          

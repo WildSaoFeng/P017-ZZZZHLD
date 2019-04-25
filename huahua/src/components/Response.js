@@ -99,8 +99,18 @@ const styles = theme => ({
   },
   centerContent2:{
     marginTop: 160
+  },
+  stress:{
+    fontWeight:'bold',
+    color:'#32CD32',
+  },
+  bad:{
+    fontWeight:'bold',
+    color:'#DC143C',
   }
 });
+
+
 
 class Response extends Component {
   
@@ -133,31 +143,51 @@ class Response extends Component {
       correctQuestion = Number(num) + Number(correctQuestion);
       outputQuestions = outputQuestions + correctQuestion + '. ';
     }
+
+    function randomNum(minNum,maxNum){ 
+      switch(arguments.length){ 
+          case 1: 
+              return parseInt(Math.random()*minNum+1,10); 
+          break; 
+          case 2: 
+              return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+          break; 
+              default: 
+                  return 0; 
+              break; 
+      } 
+    } 
+
+    let ran1 = randomNum(3,5);
+    let ran2 = randomNum(2,5);
+
+    console.log(randomNum(3,5));
+
     // console.log(this.props.current);
-    console.log(this.props.groupType);
+    // console.log(this.props.groupType);
     switch(this.props.groupType){
       case 1:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-          答对3题为合格水平，你在本组作答达到合格水平。 <br/>
+          答对3题为合格水平，你在本组 <span className={classes.stress} >答对{ran1}道题，</span> 达到<span className={classes.stress} >合格水平。</span> <br/>
           </Typography>
         );
       case 2:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-          答错2题为不合格，你在本组作答不合格。 <br/>
+          答错2题为不合格，你在本组<span className={classes.bad} >答错{ran2}道题</span>，为<span className={classes.bad} >不合格。</span> <br/>
           </Typography>
         );
       case 3:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-          你在本组答题表现很好，正确率较高，令人满意，请继续保持！
+          你在本组答题<span className={classes.stress} >表现很好，</span>正确率较高，<span className={classes.stress} >令人满意</span>，请继续保持！
           </Typography>
         );
       case 4:
         return(
           <Typography variant="title" align="center" color="inherit" className={classes.centerContent} style={{color:'#ffffff'}} component="p">
-          你在本组答题表现较差，错误率较高，令人遗憾，有待提高！
+          你在本组答题<span className={classes.bad} >表现较差</span>，错误率较高，<span className={classes.bad} >令人遗憾</span>，有待提高！
           </Typography>
         );
       default:
