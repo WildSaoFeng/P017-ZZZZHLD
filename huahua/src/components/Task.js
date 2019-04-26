@@ -33,7 +33,7 @@ class Task extends Component {
   };
 
   componentWillMount(){ // 产生1到4
-    let groupType = Math.floor(Math.random() * Math.floor(3)) + 1;
+    let groupType = Math.floor(Math.random() * Math.floor(4)) + 1;
     this.setState({
       groupType:groupType
     })

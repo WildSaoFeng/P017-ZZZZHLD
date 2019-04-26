@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
@@ -59,7 +59,7 @@ const styles = theme => ({
         margin: `${theme.spacing.unit * 2}px 0`,
     },
     buttonGroup: {
-        marginTop: theme.spacing.unit * 3,
+        marginTop: theme.spacing.unit * 10,
     },
     media:{
         marginTop:17,
@@ -139,41 +139,41 @@ const imgMap = {
 }
 
 const C_correctAnswers = {
-    "1":[true,true,true,false,true,false,false],
-    "2":[true,true,false,true,false,true,false],
-    "3":[true,true,true,false,true,false,true],
-    "4":[true,true,true,false,true,false,false],
-    "5":[true,true,true,false,true,false,false],
+    "1":[true,true,true,false,false],
+    "2":[true,true,false,true,true],
+    "3":[true,true,true,false,false],
+    "4":[true,true,true,false,false],
+    "5":[true,true,true,false,false],
 
-    "7":[true,true,true,true,true,true,false],
-    "8":[true,true,true,false,false,true,false],
-    "9":[true,true,true,true,true,false,false],
-    "10":[true,true,true,true,false,true,false],
-    "11":[true,true,true,false,true,false,false],
+    "7":[true,true,true,true,true],
+    "8":[true,true,true,false,true],
+    "9":[true,true,true,true,false],
+    "10":[true,true,true,true,true],
+    "11":[true,true,true,false,false],
 
-    "13":[true,true,false,true,false,false,true],
-    "14":[true,true,false,false,false,true,false],
-    "15":[false,true,false,false,true,false,true],
-    "16":[true,true,true,false,true,false,false],
-    "17":[true,true,false,false,false,true,false],
+    "13":[true,true,false,true,false],
+    "14":[true,true,false,false,true],
+    "15":[false,true,true,false,false],
+    "16":[true,true,true,false,false],
+    "17":[true,true,false,false,true],
 
-    "19":[true,true,false,false,false,false,true],
-    "20":[true,true,false,true,false,false,true],
-    "21":[true,true,true,false,true,false,false],
-    "22":[true,true,true,false,true,true,false],
-    "23":[true,true,false,true,false,true,false],
+    "19":[true,true,false,false,false],
+    "20":[true,true,false,true,false],
+    "21":[true,true,true,false,false],
+    "22":[true,true,true,false,true],
+    "23":[true,true,false,true,true],
 
-    "25":[true,true,true,true,false,true,false],
-    "26":[true,true,true,false,true,false,false],
-    "27":[true,true,true,false,false,false,true],
-    "28":[true,true,false,true,false,true,false],
-    "29":[true,true,false,true,true,true,false],
+    "25":[true,true,true,true,true],
+    "26":[true,true,true,false,false],
+    "27":[true,true,true,false,false],
+    "28":[true,true,false,true,true],
+    "29":[true,true,true,true,true],
 
-    "31":[true,true,true,false,false,true,false],
-    "32":[true,true,true,false,true,false,false],
-    "33":[true,true,true,true,true,true,true],
-    "34":[true,true,false,true,false,true,false],
-    "35":[true,true,true,true,false,false,false],
+    "31":[true,true,true,false,true],
+    "32":[true,true,true,false,false],
+    "33":[true,true,true,true,true],
+    "34":[true,true,false,true,true],
+    "35":[true,true,true,true,false],
 }
 
 
@@ -184,8 +184,6 @@ class Question extends Component {
         C: false,
         D: false,
         E: false,
-        F: false,
-        G: false,
     };
     
     handleChange = name => event => {
@@ -199,9 +197,17 @@ class Question extends Component {
             C: false,
             D: false,
             E: false,
-            F: false,
-            G: false,
         });
+    }
+
+    hasNotrue(obj){
+        var hasTrue = true;
+        Object.keys(obj).forEach(function(key){
+            if(obj[key] === true){
+                hasTrue = false;
+            }
+        })
+        return hasTrue;
     }
 
     selectButton = () => {
@@ -211,9 +217,15 @@ class Question extends Component {
                 <div className={classes.buttonGroup} >
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
-                            <Button variant="contained" color="secondary" className={this.props.classes.button1} onClick={() => {
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
-                                    this.handleNB();
+                            <Button variant="contained" color="secondary" className={this.props.classes.button1} onClick={() => {   
+                                                                  
+                                    if(this.hasNotrue(this.state)){
+                                        alert("至少选择一项")
+                                    }else{
+                                        this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E], C_correctAnswers[this.props.current])
+                                        this.handleNB();
+                                    }
+                                    
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -227,8 +239,12 @@ class Question extends Component {
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
-                                    this.props.history.push('survey');
+                                    if(this.hasNotrue(this.state)){
+                                        alert("至少选择一项")
+                                    }else{
+                                        this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E], C_correctAnswers[this.props.current])
+                                        this.props.history.push('survey');
+                                    }
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -255,8 +271,12 @@ class Question extends Component {
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
-                                    this.handleNB();
+                                    if(this.hasNotrue(this.state)){
+                                        alert("至少选择一项")
+                                    }else{
+                                        this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E], C_correctAnswers[this.props.current])
+                                        this.handleNB();
+                                    }
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -283,8 +303,12 @@ class Question extends Component {
                     <Grid container spacing={24} >
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
-                                    this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E,this.state.F,this.state.G], C_correctAnswers[this.props.current])
-                                    this.handleNB();
+                                    if(this.hasNotrue(this.state)){
+                                        alert("至少选择一项")
+                                    }else{
+                                        this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E], C_correctAnswers[this.props.current])
+                                        this.handleNB();
+                                    }
                                 }} >
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保存答案，下一题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </Button>
@@ -402,45 +426,23 @@ class Question extends Component {
                                         onChange={handleChange("D")}
                                         />
                                     }
-                                    label="树皮/树枝"
+                                    label="树皮/树干"
                                     className={classes.grid_check_small}
                                     />
                                 </Grid>
-                                <Grid item className = {classes.grid_check}  xs={4}>
-                                    <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                        checked={E}
-                                        onChange={handleChange("E")}
-                                        />
-                                    }
-                                    label="花苞"
-                                    />
-                                </Grid>
+                                
                                 <Grid item className = {classes.grid_check} xs={4}>
                                     
                                 <FormControlLabel
                                     control={
                                         <Checkbox
                                         checked={F}
-                                        onChange={handleChange("F")}
+                                        onChange={handleChange("E")}
                                         />
                                     }
                                     label="果实"
                                     /> 
                                     
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                            checked={G}
-                                            onChange={handleChange("G")}
-                                            />
-                                        }
-                                        label="植物全貌"
-                                        className={classes.grid_check_small}
-                                        /> 
                                 </Grid>
                             </Grid>
                         </FormGroup>

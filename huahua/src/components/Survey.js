@@ -49,12 +49,15 @@ const styles = theme => ({
     TableCell:{
         paddingRight: - theme.spacing.unit * 3,
     },
-    ti:{
-
-    },
     ba:{
         marginLeft: 30,
         marginTop:10,
+    },
+    LselectTitle:{
+        fontSize:18,
+        marginLeft:30,
+        marginTop:10,
+        width:200,
     }
 });
 
@@ -62,7 +65,7 @@ const styles = theme => ({
 const quesMap = {   
         "1": " 我有信心完成科研任务。",
         "2": "我很喜欢参与公众科学的任务。",
-        "3": "我认为我可以成功地完成其他公众科学任务。",
+        "3": "我可以成功地完成其他公众科学任务。",
         "4": "参与本次任务让我感到愉悦。",
         "5": "参与本次任务给我带来乐趣。",
         "6": "我享受参与本次任务。",
@@ -123,45 +126,47 @@ class Survey extends Component {
             return(
                 <div className={classes.ti} >
                 <Grid container spacing={16} >
-                        <Grid item xs={6} >
-                            <span className={classes.selectTitle} >
+                    <Grid item xs={6} >
+                            <span className={classes.LselectTitle} >
                                 {i + '. ' + quesMap[i]}
-                        </span>
-                </Grid>
-                <Grid item xs={6}>
-                <span className={classes.select} >
-                <Radio
-                    checked={this.state.selectedValue[i-1] == 1}
-                    onChange={this.handleChange(i-1)}
-                    value="1"
-                    name="radio-button-demo"
-                    label="A"
-                    />A. 答题情况是否达到合格水平的信息。
-                </span>
-                
-                <span className={classes.select} >
-                <Radio
-                    checked={this.state.selectedValue[i-1] == 2}
-                    onChange={this.handleChange(i-1)}
-                    value="2"
-                    name="radio-button-demo"
-                    label="B"
-                    />
-                    B. 答题表现是否令人满意的信息。
-                </span>
-               <span className={classes.select} >
-               <Radio
-                        checked={this.state.selectedValue[i-1] == 3}
-                        onChange={this.handleChange(i-1)}
-                        value={3}
-                        name="radio-button-demo"
-                        aria-label="C"
-                        />
-                        C. 不确定
-               </span>
-                        </Grid>
+                            </span>
                     </Grid>
-                    <Divider></Divider>
+
+                    <Grid item xs={6}>
+                        <span className={classes.select} >
+                        <Radio
+                            checked={this.state.selectedValue[i-1] == 1}
+                            onChange={this.handleChange(i-1)}
+                            value="1"
+                            name="radio-button-demo"
+                            label="A"
+                            />A. 答题情况是否达到合格水平的信息。
+                        </span>
+                        <br/>
+                        <span className={classes.select} >
+                        <Radio
+                            checked={this.state.selectedValue[i-1] == 2}
+                            onChange={this.handleChange(i-1)}
+                            value="2"
+                            name="radio-button-demo"
+                            label="B"
+                            />
+                            B. 答题表现是否令人满意的信息。
+                        </span>
+                        <br/>
+                        <span className={classes.select} >
+                        <Radio
+                                    checked={this.state.selectedValue[i-1] == 3}
+                                    onChange={this.handleChange(i-1)}
+                                    value={3}
+                                    name="radio-button-demo"
+                                    aria-label="C"
+                                    />
+                                    C. 不确定
+                        </span>
+                    </Grid>
+                </Grid>
+                <Divider></Divider>
                 </div>
             );
         } else if (i === 15) {
@@ -169,7 +174,7 @@ class Survey extends Component {
                 <div className={classes.ti} >
                 <Grid container spacing={16} >
                         <Grid item xs={6} >
-                            <span className={classes.selectTitle} >
+                            <span className={classes.LselectTitle} >
                                 {i + '. ' + quesMap[i]}
                         </span>
                 </Grid>
@@ -183,7 +188,7 @@ class Survey extends Component {
                     label="A"
                     />A. 我得到正面积极的反馈。
                 </span>
-                
+                <br/>
                 <span className={classes.select} >
                 <Radio
                     checked={this.state.selectedValue[i-1] == 2}
@@ -194,6 +199,7 @@ class Survey extends Component {
                     />
                     B. 我得到负面消极的反馈。
                 </span>
+                <br/>
                <span className={classes.select} >
                <Radio
                         checked={this.state.selectedValue[i-1] == 3}
@@ -428,6 +434,15 @@ class Survey extends Component {
                                     name="radio-button-demo"
                                     />
                                     女
+                            </span>
+                            <span className={classes.select} >
+                            <Radio
+                                    checked={this.state.basicInfo[0] == 3}
+                                    onChange={this.handleChangeBasic(0)}
+                                    value={2}
+                                    name="radio-button-demo"
+                                    />
+                                    其他
                             </span>
                         </Grid>
                         <Grid item xs={6} >
