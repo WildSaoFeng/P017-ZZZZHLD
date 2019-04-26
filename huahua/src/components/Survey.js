@@ -58,6 +58,10 @@ const styles = theme => ({
         marginLeft:30,
         marginTop:10,
         width:200,
+    },
+    xuanx:{
+        fontSize:18,
+        // fontWeight:"bold"
     }
 });
 
@@ -140,7 +144,9 @@ class Survey extends Component {
                             value="1"
                             name="radio-button-demo"
                             label="A"
-                            />A. 答题情况是否达到合格水平的信息。
+                            />
+                            <span className={classes.xuanx}  >A. 答题情况是否达到合格水平的信息。</span>
+                            
                         </span>
                         <br/>
                         <span className={classes.select} >
@@ -151,7 +157,7 @@ class Survey extends Component {
                             name="radio-button-demo"
                             label="B"
                             />
-                            B. 答题表现是否令人满意的信息。
+                            <span className={classes.xuanx}  >B. 答题表现是否令人满意的信息。</span>
                         </span>
                         <br/>
                         <span className={classes.select} >
@@ -162,7 +168,7 @@ class Survey extends Component {
                                     name="radio-button-demo"
                                     aria-label="C"
                                     />
-                                    C. 不确定
+                                    <span className={classes.xuanx}  >C. 不确定</span>
                         </span>
                     </Grid>
                 </Grid>
@@ -186,7 +192,8 @@ class Survey extends Component {
                     value="1"
                     name="radio-button-demo"
                     label="A"
-                    />A. 我得到正面积极的反馈。
+                    />
+                    <span className={classes.xuanx}  >A. 我得到正面积极的反馈。</span>
                 </span>
                 <br/>
                 <span className={classes.select} >
@@ -197,7 +204,7 @@ class Survey extends Component {
                     name="radio-button-demo"
                     label="B"
                     />
-                    B. 我得到负面消极的反馈。
+                    <span className={classes.xuanx}  >B. 我得到负面消极的反馈。</span>
                 </span>
                 <br/>
                <span className={classes.select} >
@@ -208,7 +215,7 @@ class Survey extends Component {
                         name="radio-button-demo"
                         aria-label="C"
                         />
-                        C. 不确定
+                        <span className={classes.xuanx}  >C. 不确定</span>
                </span>
                         </Grid>
                     </Grid>
