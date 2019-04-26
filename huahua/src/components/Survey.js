@@ -60,8 +60,7 @@ const styles = theme => ({
         width:200,
     },
     xuanx:{
-        fontSize:18,
-        // fontWeight:"bold"
+        fontWeight:"bold"
     }
 });
 
