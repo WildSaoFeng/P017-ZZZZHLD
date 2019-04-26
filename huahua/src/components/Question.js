@@ -220,7 +220,7 @@ class Question extends Component {
                             <Button variant="contained" color="secondary" className={this.props.classes.button1} onClick={() => {   
                                                                   
                                     if(this.hasNotrue(this.state)){
-                                        alert("至少选择一项")
+                                        alert("您还没有作答")
                                     }else{
                                         this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E], C_correctAnswers[this.props.current])
                                         this.handleNB();
@@ -240,7 +240,7 @@ class Question extends Component {
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
                                     if(this.hasNotrue(this.state)){
-                                        alert("至少选择一项")
+                                        alert("您还没有作答")
                                     }else{
                                         this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E], C_correctAnswers[this.props.current])
                                         this.props.history.push('survey');
@@ -272,7 +272,7 @@ class Question extends Component {
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
                                     if(this.hasNotrue(this.state)){
-                                        alert("至少选择一项")
+                                        alert("您还没有作答")
                                     }else{
                                         this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E], C_correctAnswers[this.props.current])
                                         this.handleNB();
@@ -304,7 +304,7 @@ class Question extends Component {
                         <Grid item xs={12}>
                             <Button variant="contained" color="secondary" className={classes.button1} onClick={() => {
                                     if(this.hasNotrue(this.state)){
-                                        alert("至少选择一项")
+                                        alert("您还没有作答")
                                     }else{
                                         this.props.onButtonClickNext([this.state.A, this.state.B, this.state.C, this.state.D,this.state.E], C_correctAnswers[this.props.current])
                                         this.handleNB();
@@ -436,7 +436,7 @@ class Question extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                        checked={F}
+                                        checked={E}
                                         onChange={handleChange("E")}
                                         />
                                     }
