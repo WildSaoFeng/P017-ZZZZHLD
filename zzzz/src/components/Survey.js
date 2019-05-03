@@ -58,30 +58,37 @@ const styles = theme => ({
     }
 });
 
-//这里放22+8个问题，基本信息和操作检验单独放？操作检验还不会，待会再说。
+//这里放22+8个问题，基本信息和操作检验单独放？操作检验还不会，待会再说。  //guoguo
 const quesMap = {   
-        "1": "我认为该公众科学任务设计的很合理。",
-        "2": "我认为完成此次公众科学任务的行为很明智。",
-        "3": "我认为参与此次公众科学任务很有价值。",
-        "4": "我觉得参与公众科学任务对我很重要。",
-        "5": "我觉得参与公众科学任务对我个人来说是有意义的。",
-        "6": "我觉得参与公众科学任务是有意义的。",
-        "7": "我参与公众科学任务时感觉很有趣。",
-        "8": "参与公众科学任务使我感到快乐。",
-        "9": "我享受参与这个公众科学任务。",
-        "10": "在此次公众科学任务过程中，我对任务需要做什么的理解程度非常高。",
-        "11": "在此次公众科学任务过程中，我的信心水平非常高。",
-        "12": "在此次公众科学任务过程中，我的舒适程度非常高。",
-        "13": "在此次公众科学任务过程中，我完成指定任务的技能水平非常高。",
-        "14": "该公众科学任务让我以一种新的方式学习植物相关的知识。",
-        "15": "该公众科学任务让我提高了对植物相关知识的理解。",
-        "16": "该公众科学任务让我学会标注植物的特征。",
+        "1": "我觉得参与公众科学任务对我很重要。",
+        "2": "我觉得参与公众科学任务对我个人来说是有意义的。",
+        "3": "我觉得参与公众科学任务是有意义的。",
+
+        "4": "该公众科学任务让我以一种新的方式学习植物相关的知识。",
+        "5": "该公众科学任务让我提高了对植物相关知识的理解。",
+        "6": "该公众科学任务让我学会标注植物的特征。",
+
+        "7": "我认为该公众科学任务设计的很合理。",
+        "8": "我认为完成此次公众科学任务的行为很明智。",
+        "9": "我认为参与此次公众科学任务很有价值。",
+        
+        "10": "我参与公众科学任务时感觉很有趣。",
+        "11": "参与公众科学任务使我感到快乐。",
+        "12": "我享受参与这个公众科学任务。",
+        
+        "13": "在此次公众科学任务过程中，我对任务需要做什么的理解程度非常高。",
+        "14": "在此次公众科学任务过程中，我的信心水平非常高。",
+        "15": "在此次公众科学任务过程中，我的舒适程度非常高。",
+        "16": "在此次公众科学任务过程中，我完成指定任务的技能水平非常高。",
+
         "17": "使用这个任务系统，提高了我在该公众科学任务中的表现水平。",
         "18": "使用这个任务系统，增强了我参与该公众科学任务的效率。" ,
         "19": "使用这个任务系统，将该公众科学任务变得更容易完成。" ,
+
         "20": "我愿意继续参与公众科学任务。",
         "21": "我愿意继续利用业余时间完成公众科学任务。",
         "22": "我愿意继续浏览和关注公众科学任务。",
+
         "23": "我愿意选择可以学到很多东西的、具有挑战性的任务。",
         "24": "我经常寻找可以提升技能和学习知识的机会。",
         "25": "我享受具有挑战性、可以学到新知识的任务。",
@@ -97,7 +104,7 @@ class Survey extends Component {
     state = {
         selectedValue: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         basicInfo:[0,0,0,0],
-        manipuCheck:[0,0,0]
+        manipuCheck:[0,0]  //guoguo
     };
 
     handleChange = i => event => {
@@ -308,6 +315,7 @@ class Survey extends Component {
                     {this.surveyQuestion(9)}
                     {this.surveyQuestion(10)}
                     {this.surveyQuestion(11)}
+                    {this.surveyQuestion(12)}
                 </Paper>
 
                 <Paper className={classes.root}>
@@ -321,7 +329,6 @@ class Survey extends Component {
                     </Grid>
                     <Divider></Divider>
                         
-                    {this.surveyQuestion(12)}
                     {this.surveyQuestion(13)}
                     {this.surveyQuestion(14)}
                     {this.surveyQuestion(15)}
@@ -371,7 +378,7 @@ class Survey extends Component {
                         </Grid> */}
                         <Divider/>
                         <Grid item xs={6} >
-                        <span className={classes.ba} > 我认为这个任务的难度水平为：</span>   
+                        <span className={classes.ba} > 我认为这个植物学分类任务的难度水平为：</span>   
                         </Grid>
                         <Grid item xs={6} >
                             <span className={classes.select}  >
@@ -402,9 +409,9 @@ class Survey extends Component {
                                     C、不确定
                             </span>
                         </Grid>
-
-                        <Grid item xs={6} >
-                        <span className={classes.ba} > 在参与任务的过程中：</span>   
+                        
+                        <Grid item xs={6} >   
+                        <span className={classes.ba} > 在参与任务之前：</span>
                         </Grid>
                         <Grid item xs={6} >
                             <span className={classes.select}  >
@@ -414,7 +421,7 @@ class Survey extends Component {
                                     value={1}
                                     name="radio-button-demo"
                                     />
-                                    A、我收到了反馈
+                                    A、我接受了训练
                             </span>
                             <span className={classes.select} >
                             <Radio
@@ -423,45 +430,12 @@ class Survey extends Component {
                                     value={2}
                                     name="radio-button-demo"
                                     />
-                                    B、没有收到反馈
-                            </span>
-                            <span className={classes.select} >
-                            <Radio
-                                    checked={this.state.manipuCheck[1] == 3}
-                                    onChange={this.handleChangeManipu(1)}
-                                    value={3}
-                                    name="radio-button-demo"
-                                    />
-                                    C、不确定
-                            </span>
-                        </Grid>
-                        
-                        <Grid item xs={6} >
-                        <span className={classes.ba} > 在参与任务之前：</span>
-                        </Grid>
-                        <Grid item xs={6} >
-                            <span className={classes.select}  >
-                                <Radio
-                                    checked={this.state.manipuCheck[2] == 1}
-                                    onChange={this.handleChangeManipu(2)}
-                                    value={1}
-                                    name="radio-button-demo"
-                                    />
-                                    A、我接受了训练
-                            </span>
-                            <span className={classes.select} >
-                            <Radio
-                                    checked={this.state.manipuCheck[2] == 2}
-                                    onChange={this.handleChangeManipu(2)}
-                                    value={2}
-                                    name="radio-button-demo"
-                                    />
                                     B、没有接受训练
                             </span>
                             <span className={classes.select}  >
                                 <Radio
-                                    checked={this.state.manipuCheck[2] == 3}
-                                    onChange={this.handleChangeManipu(2)}
+                                    checked={this.state.manipuCheck[1] == 3}
+                                    onChange={this.handleChangeManipu(1)}
                                     value={3}
                                     name="radio-button-demo"
                                     />

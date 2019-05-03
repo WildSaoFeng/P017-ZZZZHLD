@@ -48,7 +48,7 @@ const styles = theme => ({
         length:100,
     },
     hahtitle:{
-        fontSize:22,
+        fontSize:20,
     },
     grid_check_small:{
         // marginRight:  theme.spacing.unit * 20,

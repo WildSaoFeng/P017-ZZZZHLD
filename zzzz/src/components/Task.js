@@ -39,12 +39,12 @@ class Task extends Component {
       groupType: groupType
     });
     let simple = false, responsible = false, training = false;
-    if(groupType <= 4 ) {
+    if(groupType <= 2 ) {
       simple = true;
     }
-    if(groupType == 3 || this.state.groupType == 4 || this.state.groupType == 7 || this.state.groupType == 8) {
-      responsible = true;
-    }
+    // if(groupType == 3 || this.state.groupType == 4 || this.state.groupType == 7 || this.state.groupType == 8) {
+    //   responsible = true;
+    // }
     if(groupType % 2 == 0) {
       training = true;
     }
@@ -56,7 +56,7 @@ class Task extends Component {
   }
 
   componentWillMount(){ 
-    let groupType = Math.floor(Math.random() * Math.floor(8)) + 1;
+    let groupType = Math.floor(Math.random() * Math.floor(4)) + 1;
     console.log("% " + groupType);
     this.divideGroup(groupType);
   }
