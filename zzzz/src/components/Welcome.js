@@ -132,7 +132,7 @@ class Welcome extends Component {
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
             <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
-            &nbsp; &nbsp; &nbsp; &nbsp; 您好！我们是中央财经大学信息学院研究团队，现正开展一项公众科学志愿者参与体验研究。公众科学是指包含了大量非职业科研人员、科学爱好者和志愿者参与的开放科研活动。本次任务您将在线观察若干张植物图片并按照要求标注植物特征，以帮助植物学家完成科学研究。如果您在观察图片时感到不耐烦，可以在任何时候选择中止本任务，并回答一份关于本次参与体验的问卷。任务所需时间约10-15分钟。
+            &nbsp; &nbsp; &nbsp; &nbsp; 您好！我们是中央财经大学信息学院研究团队，现正开展一项公众科学志愿者参与体验研究。公众科学是指包含了大量非职业科研人员、科学爱好者和志愿者参与的开放科研活动。本次任务您将在线观察若干张植物图片并按照要求标注植物特征。如果您在任务过程中感到不耐烦，可以在完成一定题目后点击“结束任务”，并回答一份关于本次参与体验的问卷。如果图片加载较慢请您等待加载完成后作答。任务所需时间约10-15分钟。
             </Typography>
             <br/>
             <Typography variant="title" color="inherit" style={{color:'#ffffff'}} component="p">
