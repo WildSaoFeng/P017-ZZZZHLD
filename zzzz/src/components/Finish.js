@@ -129,7 +129,7 @@ class Finish extends Component {
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
             <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} className={classes.fontxx}  component="p">
-            提交成功，感谢您参与本次有关植物学分类的公众科学任务
+            本项目已成功提交，感谢您参与本次有关植物学分类的公众科学任务
             </Typography>
           </div>
         </div>
