@@ -53,6 +53,7 @@ const styles = theme => ({
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
   mainContent: {
+    fontSize: 200,
     marginTop:theme.spacing.unit * 8,
     marginBottom:theme.spacing.unit * -8,
   },
@@ -98,6 +99,9 @@ const styles = theme => ({
   },
   backhome:{
     marginRight:theme.spacing.unit * 3,
+  },
+  fontxx:{
+    fontSize:theme.spacing.unit * 8,
   }
 });
 
@@ -124,7 +128,7 @@ class Finish extends Component {
       <main className={classes.layout}>
         <div className={classes.heroContent}>
           <div className={classes.mainContent}>
-            <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} component="p">
+            <Typography variant="title" align="center" color="inherit" style={{color:'#ffffff'}} className={classes.fontxx}  component="p">
             提交成功，感谢您参与本次有关植物学分类的公众科学任务
             </Typography>
           </div>
